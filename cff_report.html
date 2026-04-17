@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navigating the Gap — ideas42 & College Futures Foundation</title>
+<title>Navigating the Gap — ideas42</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -37,9 +36,7 @@
   /* NAV */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     background: var(--indigo);
     display: flex;
@@ -50,17 +47,20 @@
   }
 
   .nav-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    color: var(--rain);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 28px;
   }
 
-  .nav-logo span {
-    color: var(--green-apple);
+  .nav-logo svg {
+    height: 22px;
+    width: auto;
   }
+
+  /* Recolor SVG to white wordmark + green-apple badge */
+  .nav-logo svg .cls-1 { fill: white; }
+  .nav-logo svg .cls-2 { fill: var(--green-apple); }
 
   .nav-links {
     display: flex;
@@ -92,10 +92,8 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -100px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
+    top: -100px; right: -200px;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(122,193,10,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
@@ -115,8 +113,7 @@
   .hero-eyebrow::before {
     content: '';
     display: block;
-    width: 32px;
-    height: 1.5px;
+    width: 32px; height: 1.5px;
     background: var(--green-apple);
   }
 
@@ -130,10 +127,7 @@
     margin-bottom: 32px;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--lichen);
-  }
+  .hero h1 em { font-style: italic; color: var(--lichen); }
 
   .hero-sub {
     font-size: 18px;
@@ -168,21 +162,18 @@
     font-size: 13px;
     color: var(--rain);
     opacity: 0.7;
-    max-width: 160px;
+    max-width: 180px;
     line-height: 1.4;
   }
 
-  /* SECTION SHELL */
+  /* SECTION SHELLS */
   section {
     padding: 96px 80px;
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .section-full {
-    max-width: 100%;
-    padding: 0;
-  }
+  .section-full { max-width: 100%; padding: 0; }
 
   .section-inner {
     max-width: 1100px;
@@ -205,8 +196,7 @@
   .section-eyebrow::before {
     content: '';
     display: block;
-    width: 24px;
-    height: 1.5px;
+    width: 24px; height: 1.5px;
     background: var(--deep-sea);
   }
 
@@ -263,11 +253,7 @@
   .exec-card p { font-size: 15px; color: #333; }
 
   /* PROBLEM */
-  #problem {
-    background: var(--indigo);
-    color: white;
-  }
-
+  #problem { background: var(--indigo); color: white; }
   #problem .section-eyebrow { color: var(--lichen); }
   #problem .section-eyebrow::before { background: var(--lichen); }
   #problem h2 { color: white; }
@@ -287,61 +273,121 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--green-apple);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
-  .disproof-list {
+  .disproof-items {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    list-style: none;
+    gap: 20px;
   }
 
-  .disproof-list li {
+  .disproof-item {
     display: flex;
+    gap: 14px;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
   }
 
-  .disproof-list li::before {
-    content: '×';
+  .disproof-strike {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(239,106,0,0.18);
+    border: 1px solid rgba(239,106,0,0.4);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
     color: var(--cayenne);
     font-weight: 700;
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 1px;
+    font-size: 13px;
+    line-height: 1;
   }
 
-  /* FINDINGS */
+  .disproof-text {
+    flex: 1;
+  }
+
+  .disproof-myth {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    text-decoration: line-through;
+    text-decoration-color: rgba(239,106,0,0.6);
+    margin-bottom: 3px;
+  }
+
+  .disproof-reality {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  /* FINDINGS — tabbed */
   #findings { background: var(--off-white); }
 
-  .insight-block {
-    margin-bottom: 80px;
-    padding-bottom: 80px;
-    border-bottom: 1px solid rgba(0,67,87,0.12);
+  .insight-intro {
+    max-width: 680px;
+    margin-bottom: 48px;
+    font-size: 17px;
+    color: #444;
   }
 
-  .insight-block:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+  .insight-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 40px;
+    background: rgba(0,67,87,0.06);
+    padding: 4px;
+    border-radius: 8px;
+    width: fit-content;
+    flex-wrap: wrap;
   }
 
-  .insight-num {
+  .insight-tab {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--indigo);
+    opacity: 0.6;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .insight-tab.active {
+    background: var(--indigo);
+    color: white;
+    opacity: 1;
+  }
+
+  .insight-panel { display: none; }
+  .insight-panel.active { display: block; }
+
+  .insight-panel .insight-num {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     background: var(--indigo);
     color: white;
     font-size: 13px;
     font-weight: 600;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+  }
+
+  .insight-panel h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--indigo);
+    margin-bottom: 32px;
+    max-width: 760px;
+    line-height: 1.3;
   }
 
   .insight-body {
@@ -376,16 +422,13 @@
   }
 
   /* DECISION MAP */
-  #map {
-    background: var(--indigo);
-  }
-
+  #map { background: var(--indigo); }
   #map .section-eyebrow { color: var(--lichen); }
   #map .section-eyebrow::before { background: var(--lichen); }
   #map h2 { color: white; }
   #map p { color: rgba(255,255,255,0.8); max-width: 680px; margin-bottom: 48px; }
 
-  .map-container {
+  .map-wrapper {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 8px;
@@ -393,9 +436,240 @@
     overflow-x: auto;
   }
 
-  .map-container svg {
+  /* HTML decision map */
+  .decision-map {
+    width: 100%;
+    min-width: 560px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .map-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(217,225,226,0.7);
+  }
+
+  .legend-swatch {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .map-entry-labels {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: rgba(217,225,226,0.55);
+    line-height: 1.8;
+  }
+
+  .map-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+  }
+
+  /* Each row = stage box + callout */
+  .map-row {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 0;
+  }
+
+  .map-stage-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-stage {
+    width: 100%;
+    border-radius: 6px;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  .map-stage-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .map-stage.upstream {
+    background: var(--indigo);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .map-stage.upstream .map-stage-label { color: #F5F3EE; }
+
+  .map-stage.shared {
+    background: var(--deep-sea);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .map-stage.shared .map-stage-label { color: #F5F3EE; }
+
+  .map-stage.gate {
+    background: rgba(239,106,0,0.18);
+    border: 1px solid rgba(239,106,0,0.5);
+  }
+  .map-stage.gate .map-stage-label { color: #9a3800; }
+
+  .map-stage.enroll-stage {
+    background: var(--indigo);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .map-stage.enroll-stage .map-stage-label { color: #F5F3EE; }
+
+  .map-constraint {
+    width: 100%;
+    background: rgba(239,106,0,0.08);
+    border: 1px solid rgba(239,106,0,0.3);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: rgba(180,100,0,0.9);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .map-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    position: relative;
+    width: 100%;
+  }
+
+  .map-arrow::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1.5px;
+    background: var(--green-apple);
+    transform: translateX(-50%);
+  }
+
+  .map-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--green-apple);
+  }
+
+  .map-arrow-label {
+    position: absolute;
+    left: calc(50% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green-apple);
+    letter-spacing: 0.04em;
+  }
+
+  .map-no-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--cayenne);
+    font-weight: 600;
+    margin-top: 8px;
+    justify-content: flex-start;
+    padding-left: 4px;
+  }
+
+  .map-no-arrow::before {
+    content: '← NO';
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .map-callout {
+    background: #1a3a45;
+    border: 1px solid rgba(8,112,132,0.5);
+    border-radius: 6px;
+    padding: 14px 16px;
+    align-self: start;
+    margin-top: 0;
+  }
+
+  .map-callout-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--green-apple);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+  }
+
+  .map-callout p {
+    font-size: 12px;
+    color: rgba(217,225,226,0.85);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* callout alignment per row */
+  .map-row .map-callout { margin-top: 0; }
+
+  .map-bottom-note {
+    width: 100%;
+    background: rgba(28,138,112,0.15);
+    border: 1px solid rgba(28,138,112,0.4);
+    border-radius: 6px;
+    padding: 18px 24px;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .map-bottom-note strong {
     display: block;
-    max-width: 100%;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(217,225,226,0.9);
+    margin-bottom: 5px;
+  }
+
+  .map-bottom-note p {
+    font-size: 12px;
+    color: rgba(155,181,190,0.9);
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .map-forgo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+    padding-left: 0;
+  }
+
+  .map-forgo-label {
+    font-size: 12px;
+    color: rgba(239,106,0,0.7);
+    font-style: italic;
   }
 
   /* DESIGN CONCEPTS */
@@ -423,11 +697,7 @@
     letter-spacing: 0.01em;
   }
 
-  .principle-card p {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-  }
+  .principle-card p { font-size: 14px; color: #444; line-height: 1.6; }
 
   .concepts-grid {
     display: grid;
@@ -439,7 +709,6 @@
     border: 1px solid rgba(0,67,87,0.12);
     border-radius: 8px;
     overflow: hidden;
-    cursor: pointer;
     transition: box-shadow 0.2s, transform 0.2s;
   }
 
@@ -449,71 +718,81 @@
   }
 
   .concept-header {
-    padding: 28px 28px 20px;
+    padding: 24px 28px 18px;
     background: var(--indigo);
     color: white;
   }
 
   .concept-header .tag {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--lichen);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .concept-header h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 22px;
+    font-size: 21px;
     color: white;
     margin-bottom: 0;
   }
 
   .concept-body {
-    padding: 28px;
+    padding: 24px 28px;
     background: white;
   }
 
-  .concept-body p {
-    font-size: 15px;
+  .concept-body > p {
+    font-size: 14px;
     color: #333;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    line-height: 1.65;
+    margin-bottom: 16px;
   }
 
   .concept-mechanism {
     background: var(--light-teal);
     border-radius: 4px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
   }
 
   .concept-mechanism .mech-label {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--deep-sea);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .concept-mechanism p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--indigo);
     margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  .concept-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .concept-insights {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
   .insight-tag {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 20px;
     background: rgba(0,67,87,0.08);
     color: var(--indigo);
@@ -522,40 +801,79 @@
 
   .concept-detail {
     display: none;
-    padding: 0 28px 28px;
+    padding: 0 28px 24px;
     background: white;
     border-top: 1px solid rgba(0,67,87,0.08);
   }
 
   .concept-detail.open { display: block; }
 
-  .concept-detail p {
-    font-size: 15px;
+  .concept-detail-inner {
+    padding-top: 20px;
+    display: grid;
+    gap: 4px;
+  }
+
+  .detail-point {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
     color: #333;
-    line-height: 1.7;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    line-height: 1.55;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,67,87,0.06);
+  }
+
+  .detail-point:last-child { border-bottom: none; }
+
+  .detail-point-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--green-apple);
+    border-radius: 50%;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .detail-point-icon::after {
+    content: '→';
+    font-size: 9px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .detail-actor {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,67,87,0.08);
+    margin-top: 8px;
   }
 
   .toggle-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--deep-sea);
     cursor: pointer;
     background: none;
     border: none;
     padding: 0;
-    margin-top: 4px;
     letter-spacing: 0.02em;
+    flex-shrink: 0;
   }
 
   .toggle-btn .arrow {
     display: inline-block;
     transition: transform 0.2s;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .toggle-btn.open .arrow { transform: rotate(180deg); }
@@ -626,10 +944,7 @@
     margin-bottom: 12px;
   }
 
-  .actor-priority p {
-    font-size: 15px;
-    margin-bottom: 0;
-  }
+  .actor-priority p { font-size: 15px; margin-bottom: 0; }
 
   /* FOOTER */
   footer {
@@ -640,7 +955,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 32px;
   }
+
+  .footer-logo svg { height: 20px; width: auto; }
+  .footer-logo svg .cls-1 { fill: rgba(255,255,255,0.5); }
+  .footer-logo svg .cls-2 { fill: var(--green-apple); }
 
   footer strong { color: white; }
 
@@ -650,11 +970,7 @@
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: none;
-  }
+  .fade-up.visible { opacity: 1; transform: none; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -664,8 +980,12 @@
     .hero { padding-top: 100px; }
     .exec-grid, .insight-body, .concepts-grid, .design-intro-grid { grid-template-columns: 1fr; }
     .hero-meta { flex-wrap: wrap; gap: 24px; }
-    .disproof-list { grid-template-columns: 1fr; }
+    .disproof-items { grid-template-columns: 1fr; }
     .actor-tabs { flex-wrap: wrap; }
+    .insight-tabs { flex-wrap: wrap; }
+    .map-row { grid-template-columns: 1fr; }
+    .map-callout { display: none; }
+    .decision-map { min-width: 0; }
   }
 </style>
 </head>
@@ -673,7 +993,22 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">ideas<span>42</span> × CFF</div>
+  <div class="nav-logo">
+    <svg id="art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 355" aria-label="ideas42">
+      <defs><style>.cls-1{fill:#004357}.cls-2{fill:#7ac10a;fill-rule:evenodd}</style></defs>
+      <g>
+        <path class="cls-1" d="M3,178.46c0-5.15,1.91-9.65,5.74-13.48,3.82-3.82,8.67-5.74,14.54-5.74s10.81,1.82,14.81,5.47c4,3.65,6,8.23,6,13.74s-2,10.1-6,13.75c-4,3.65-8.94,5.47-14.81,5.47s-10.72-1.91-14.54-5.74c-3.83-3.83-5.74-8.32-5.74-13.48ZM7.54,221.97h32.02v128.11H7.54v-128.11Z"/>
+        <path class="cls-1" d="M161.93,330.86h-.53c-4.63,7.83-10.85,13.53-18.68,17.08-7.83,3.56-16.28,5.34-25.35,5.34-9.97,0-18.82-1.73-26.56-5.2-7.74-3.47-14.37-8.23-19.88-14.28-5.52-6.05-9.7-13.17-12.54-21.35-2.85-8.18-4.27-16.99-4.27-26.42s1.51-18.24,4.54-26.42c3.02-8.18,7.25-15.3,12.68-21.35,5.43-6.05,11.97-10.81,19.62-14.28,7.65-3.47,16.01-5.2,25.09-5.2,6.05,0,11.39.62,16.01,1.87,4.63,1.25,8.72,2.85,12.28,4.8,3.56,1.96,6.58,4.05,9.07,6.27,2.49,2.23,4.54,4.41,6.14,6.54h.8v-89.94h32.02v201.77h-30.43v-19.22ZM86.13,286.02c0,4.98.84,9.79,2.54,14.41,1.69,4.63,4.18,8.72,7.47,12.27,3.29,3.56,7.25,6.41,11.88,8.54,4.63,2.14,9.88,3.2,15.75,3.2s11.12-1.07,15.75-3.2c4.63-2.14,8.58-4.98,11.88-8.54,3.29-3.56,5.78-7.65,7.47-12.27,1.69-4.63,2.53-9.43,2.53-14.41s-.84-9.78-2.53-14.41c-1.69-4.63-4.18-8.72-7.47-12.28-3.29-3.56-7.25-6.41-11.88-8.54-4.63-2.13-9.87-3.2-15.75-3.2s-11.12,1.07-15.75,3.2c-4.63,2.14-8.59,4.98-11.88,8.54-3.3,3.56-5.79,7.65-7.47,12.28-1.69,4.63-2.54,9.43-2.54,14.41Z"/>
+        <path class="cls-1" d="M239.03,297.23c1.07,9.61,4.81,17.08,11.21,22.42,6.4,5.34,14.14,8.01,23.22,8.01,8.01,0,14.72-1.64,20.15-4.93,5.43-3.29,10.19-7.43,14.28-12.41l22.95,17.35c-7.47,9.25-15.84,15.84-25.09,19.75-9.25,3.91-18.95,5.87-29.09,5.87-9.61,0-18.68-1.6-27.22-4.8-8.54-3.2-15.93-7.74-22.15-13.61-6.23-5.87-11.17-12.95-14.81-21.22-3.65-8.27-5.47-17.48-5.47-27.63s1.82-19.35,5.47-27.62c3.65-8.28,8.58-15.35,14.81-21.22,6.22-5.87,13.61-10.41,22.15-13.61,8.54-3.2,17.62-4.8,27.22-4.8,8.89,0,17.03,1.56,24.42,4.67,7.38,3.12,13.7,7.61,18.95,13.48,5.25,5.88,9.34,13.13,12.28,21.75,2.94,8.63,4.4,18.55,4.4,29.76v8.81h-97.68ZM304.69,273.21c-.18-9.43-3.12-16.86-8.81-22.29-5.7-5.43-13.61-8.14-23.75-8.14-9.61,0-17.21,2.76-22.82,8.27-5.61,5.52-9.03,12.9-10.28,22.15h65.66Z"/>
+        <path class="cls-1" d="M431.06,332.46h-.8c-4.63,7.29-10.5,12.59-17.62,15.88-7.12,3.29-14.95,4.94-23.49,4.94-5.87,0-11.61-.8-17.21-2.4-5.61-1.6-10.59-4.01-14.95-7.21-4.36-3.2-7.87-7.2-10.54-12.01-2.67-4.8-4-10.41-4-16.82,0-6.94,1.24-12.85,3.74-17.75,2.49-4.89,5.83-8.98,10.01-12.27,4.18-3.29,9.03-5.92,14.54-7.88,5.51-1.96,11.25-3.42,17.21-4.4,5.96-.98,11.97-1.6,18.01-1.87,6.05-.27,11.74-.4,17.08-.4h8.01v-3.47c0-8.01-2.76-14.01-8.27-18.01-5.52-4-12.54-6-21.08-6-6.76,0-13.08,1.2-18.95,3.6-5.87,2.4-10.94,5.65-15.21,9.74l-16.81-16.82c7.11-7.29,15.43-12.54,24.96-15.74,9.52-3.2,19.35-4.8,29.49-4.8,9.07,0,16.72,1.02,22.95,3.07,6.23,2.05,11.38,4.67,15.48,7.87,4.09,3.2,7.25,6.9,9.48,11.08,2.22,4.19,3.82,8.41,4.8,12.68.98,4.27,1.55,8.41,1.73,12.41.18,4.01.27,7.52.27,10.54v73.66h-28.82v-17.61ZM429.19,292.69h-6.67c-4.45,0-9.43.18-14.95.53-5.52.36-10.72,1.2-15.61,2.54-4.9,1.33-9.03,3.29-12.41,5.87-3.38,2.58-5.07,6.19-5.07,10.81,0,3.03.67,5.56,2,7.61,1.33,2.05,3.07,3.78,5.2,5.2,2.14,1.43,4.54,2.45,7.21,3.07,2.67.62,5.34.93,8.01.93,11.03,0,19.17-2.62,24.42-7.87,5.25-5.25,7.87-12.41,7.87-21.49v-7.2Z"/>
+        <path class="cls-1" d="M548.81,257.46c-6.23-8.71-14.59-13.08-25.09-13.08-4.27,0-8.45,1.07-12.54,3.2-4.1,2.14-6.14,5.61-6.14,10.41,0,3.92,1.69,6.76,5.07,8.54,3.38,1.78,7.65,3.29,12.81,4.54,5.16,1.25,10.72,2.54,16.68,3.87,5.96,1.33,11.52,3.38,16.68,6.14,5.16,2.76,9.43,6.54,12.81,11.35,3.38,4.8,5.07,11.39,5.07,19.75,0,7.65-1.65,14.1-4.94,19.35-3.29,5.25-7.56,9.48-12.81,12.68-5.25,3.2-11.17,5.52-17.75,6.94-6.59,1.42-13.17,2.14-19.75,2.14-9.97,0-19.13-1.43-27.49-4.27-8.36-2.84-15.84-8.01-22.42-15.48l21.35-20.02c4.09,4.63,8.49,8.41,13.21,11.35,4.71,2.93,10.45,4.4,17.21,4.4,2.31,0,4.71-.27,7.2-.8,2.49-.53,4.81-1.42,6.94-2.67,2.13-1.24,3.87-2.8,5.2-4.67,1.33-1.87,2-4.04,2-6.54,0-4.45-1.69-7.74-5.07-9.88-3.38-2.13-7.65-3.87-12.81-5.2-5.16-1.33-10.72-2.58-16.68-3.74-5.96-1.15-11.52-3.02-16.68-5.61-5.16-2.58-9.43-6.18-12.81-10.81-3.38-4.62-5.07-11.03-5.07-19.21,0-7.11,1.47-13.3,4.4-18.55,2.94-5.24,6.81-9.56,11.61-12.95,4.8-3.37,10.32-5.87,16.55-7.47,6.23-1.6,12.54-2.4,18.95-2.4,8.54,0,16.99,1.46,25.36,4.4,8.36,2.93,15.12,7.97,20.28,15.08l-21.35,19.21Z"/>
+      </g>
+      <g>
+        <polygon class="cls-2" points="580.99 160.43 608.75 160.43 608.75 117.83 608.4 117.83 580.99 160.43"/>
+        <path class="cls-2" d="M653.08,1.72c-82.8,0-149.92,67.12-149.92,149.92,0,19.32,3.7,37.77,10.35,54.73,13.54-1.68,27.44-.27,40.77,4.41,10.91,3.83,19.86,10.49,26.61,19.79l6.99,9.63-30.15,27.13c25.91,21.38,59.13,34.22,95.34,34.22,82.8,0,149.92-67.12,149.92-149.92S735.88,1.72,653.08,1.72ZM649.77,182.42h-15.89v24.79h-25.14v-24.79h-53.94v-22l50.45-76.81h28.63v76.81h15.89v22ZM743.5,207.21h-86.24v-27.76l48.01-43.12c2.44-2.21,4.89-4.71,7.33-7.51,2.44-2.79,3.67-6.05,3.67-9.78,0-4.19-1.51-7.48-4.54-9.86-3.03-2.38-6.58-3.58-10.65-3.58-4.89,0-8.7,1.51-11.43,4.54-2.74,3.03-4.28,6.75-4.63,11.17l-26.19-1.92c.35-6.4,1.69-11.96,4.02-16.67,2.33-4.71,5.41-8.64,9.25-11.78,3.84-3.14,8.35-5.5,13.53-7.07,5.18-1.57,10.79-2.36,16.85-2.36,5.59,0,10.82.79,15.71,2.36,4.89,1.57,9.14,3.9,12.74,6.98,3.61,3.09,6.43,6.96,8.47,11.61,2.03,4.66,3.05,10.07,3.05,16.24,0,3.96-.41,7.54-1.22,10.74-.81,3.2-1.95,6.11-3.4,8.73-1.46,2.62-3.17,5.04-5.15,7.24-1.98,2.21-4.13,4.36-6.46,6.46l-37.53,32.3h54.82v23.04Z"/>
+      </g>
+    </svg>
+  </div>
   <ul class="nav-links">
     <li><a href="#exec">Summary</a></li>
     <li><a href="#problem">The Problem</a></li>
@@ -686,21 +1021,21 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">ideas42 &amp; College Futures Foundation — 2026</div>
+  <div class="hero-eyebrow">ideas42 — California Adult Learner Research — 2026</div>
   <h1>Navigating the Gap:<br><em>How Working Adults Make<br>College Decisions</em></h1>
   <p class="hero-sub">A behavioral research project examining why working adults in California struggle to act on what they already know about postsecondary education — and what it would take to change that.</p>
   <div class="hero-meta">
     <div class="hero-stat">
       <div class="num">50+</div>
-      <div class="label">interviews with adult learners across California</div>
+      <div class="label">in-depth interviews with adult learners across California</div>
     </div>
     <div class="hero-stat">
-      <div class="num">4</div>
-      <div class="label">core findings about decision-making barriers</div>
+      <div class="num">0/8</div>
+      <div class="label">prospective students had heard of College Scorecard, Career Explorer, or Niche</div>
     </div>
     <div class="hero-stat">
-      <div class="num">4</div>
-      <div class="label">design concepts grounded in the diagnosis</div>
+      <div class="num">1 gap</div>
+      <div class="label">not motivation, not identity — a missing navigation layer</div>
     </div>
   </div>
 </div>
@@ -744,26 +1079,57 @@
     <p>What we found reframes the problem. Adults are not passive, unmotivated, or confused about what they want. They are deliberate. The gap is not in their goals or effort. The gap is in the infrastructure that should help them translate those goals into a well-reasoned choice — and that infrastructure is largely missing.</p>
 
     <div class="disproof-box fade-up">
-      <h4>What This Research Disproves</h4>
-      <ul class="disproof-list">
-        <li>Adults don't know what they value or want from education</li>
-        <li>Motivation is the primary gap preventing good decisions</li>
-        <li>Identity and belonging are the dominant barriers</li>
-        <li>Better tools alone will fix the problem</li>
-      </ul>
+      <h4>Four assumptions this research overturns</h4>
+      <div class="disproof-items">
+        <div class="disproof-item">
+          <div class="disproof-strike">×</div>
+          <div class="disproof-text">
+            <div class="disproof-myth">Adults don't know what they value</div>
+            <div class="disproof-reality">They articulate their priorities with striking clarity — the gap is in acting on them, not forming them.</div>
+          </div>
+        </div>
+        <div class="disproof-item">
+          <div class="disproof-strike">×</div>
+          <div class="disproof-text">
+            <div class="disproof-myth">Motivation is the primary gap</div>
+            <div class="disproof-reality">Adults are already motivated. What's missing is a decision environment that makes it possible to act.</div>
+          </div>
+        </div>
+        <div class="disproof-item">
+          <div class="disproof-strike">×</div>
+          <div class="disproof-text">
+            <div class="disproof-myth">Identity and belonging are the dominant barriers</div>
+            <div class="disproof-reality">Structural constraints and information gaps loom much larger than the identity concerns the field has emphasized.</div>
+          </div>
+        </div>
+        <div class="disproof-item">
+          <div class="disproof-strike">×</div>
+          <div class="disproof-text">
+            <div class="disproof-myth">Better tools alone will fix the problem</div>
+            <div class="disproof-reality">The best existing tools are essentially invisible at the moment of decision. The problem is navigational, not informational.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- FINDINGS -->
+<!-- FINDINGS — tabbed -->
 <div id="findings" class="section-full">
   <div class="section-inner">
     <div class="section-eyebrow">What We Learned</div>
     <h2>Four findings, one underlying problem</h2>
-    <p style="max-width: 680px; margin-bottom: 64px; font-size: 17px; color: #444;">Drawn from more than 50 interviews, these findings trace a consistent story. The barriers adults face are not primarily about motivation, identity, or a failure to understand what they value. They are about a system that makes it genuinely hard to act on what adults already know.</p>
+    <p class="insight-intro">Drawn from more than 50 interviews, these findings trace a consistent story. The barriers adults face are not primarily about motivation, identity, or a failure to understand what they value. They are about a system that makes it genuinely hard to act on what adults already know.</p>
+
+    <div class="insight-tabs">
+      <button class="insight-tab active" onclick="switchInsight(this, 'ins1')">Adults know their values</button>
+      <button class="insight-tab" onclick="switchInsight(this, 'ins2')">Hard to predict</button>
+      <button class="insight-tab" onclick="switchInsight(this, 'ins3')">Constraints eliminate</button>
+      <button class="insight-tab" onclick="switchInsight(this, 'ins4')">Workarounds</button>
+    </div>
 
     <!-- INSIGHT 1 -->
-    <div class="insight-block fade-up">
+    <div id="ins1" class="insight-panel active fade-up">
       <div class="insight-num">1</div>
       <h3>Adults are intentional and clear about what they value — but what feels "worth it" shifts depending on how far ahead they can afford to look</h3>
       <div class="insight-body">
@@ -771,7 +1137,6 @@
           <p>Across every segment we interviewed, people could articulate with striking clarity what value meant to them. Higher wages or career advancement. Credentials their employer would actually recognize. Skills they could apply immediately. Stability, mobility, low financial risk. Flexibility compatible with work and caregiving. Adults were not confused about what "worth it" means. They were specific about it.</p>
           <p>This clarity matters because it reframes where the problem lies. If adults already know what they want, the gap is not motivational — it is navigational. The challenge is not getting adults to care about outcomes. It is helping them find and evaluate the programs most likely to deliver on what they already care about.</p>
           <p>But value is not a fixed point. What adults prioritize depends significantly on how far ahead they feel they can afford to plan. For adults facing immediate financial pressure, caregiving demands, or job instability, the horizon compresses: speed, flexibility, and low cost dominate. Precarity compresses what people plan for. A learner who says "I just need something short and cheap" may not be indifferent to long-term outcomes — she may simply not have the bandwidth to plan for them right now.</p>
-          <p>What learners value and what the labor market rewards do not always align. A program can feel personally meaningful, build real skills and confidence, and still fall short of what employers recognize or what wage progression requires.</p>
         </div>
         <div>
           <div class="quote-card">
@@ -791,15 +1156,14 @@
     </div>
 
     <!-- INSIGHT 2 -->
-    <div class="insight-block fade-up">
+    <div id="ins2" class="insight-panel fade-up">
       <div class="insight-num">2</div>
       <h3>Adults struggle to predict which programs will actually deliver on what they value — and the system gives them almost nothing reliable to work with</h3>
       <div class="insight-body">
         <div>
           <p>Despite knowing what they value, adults consistently struggled to answer the questions that matter most: Will employers actually recognize this credential? What do graduates from this specific program earn? What additional steps will be required after completion? These are not obscure questions. They are the basic inputs to a reasonable decision. And for most adults navigating most programs, they are effectively unanswerable.</p>
           <p>The information environment is deeply fragmented. Programs report different metrics. Wage data, where it exists, is typically averaged at the field or institution level — not the program level where it would be most useful. Employer recognition is implied through marketing rather than verified through evidence. There is no standardized format, no way to compare programs on what matters.</p>
-          <p>The consequences cluster in predictable places. In structured pathways — nursing, skilled trades, IT certifications — the credential-to-job link is relatively legible. In opaque pathways — general business certificates, CRM, data analysis — learners tended to overestimate employer recognition, underestimate additional steps, and rely on surface cues to fill the gaps.</p>
-          <p>In our second round of interviews, we introduced eight prospective learners to tools designed to support college decision-making — College Scorecard, Career Explorer, and Niche. <strong>Not one had heard of any of them.</strong> Once introduced, most reacted positively and said they would use them. The problem is not that adults are uninterested in better information. It is that the tools are effectively invisible at the moment of decision.</p>
+          <p>In our second round of interviews, we introduced eight prospective learners to College Scorecard, Career Explorer, and Niche. <strong>Not one had heard of any of them.</strong> Once introduced, most reacted positively and said they would use them. The problem is not that adults are uninterested in better information. It is that the tools are effectively invisible at the moment of decision.</p>
         </div>
         <div>
           <div class="quote-card">
@@ -819,7 +1183,7 @@
     </div>
 
     <!-- INSIGHT 3 -->
-    <div class="insight-block fade-up">
+    <div id="ins3" class="insight-panel fade-up">
       <div class="insight-num">3</div>
       <h3>Structural constraints don't narrow choices — they eliminate them</h3>
       <div class="insight-body">
@@ -827,7 +1191,6 @@
           <p>For most working adults, the decision process doesn't begin with a survey of options. It begins with the rapid elimination of everything that won't work. Work schedules rule out anything with fixed in-person hours. Caregiving responsibilities eliminate programs requiring full-time intensity. Transportation constraints remove distant campuses. Finances make higher-cost programs unavailable, regardless of their quality.</p>
           <p>The result: most adults are not choosing between "best" and "better." They are choosing between possible and impossible. By the time any real evaluation begins, the viable choice set may already be reduced to one or two programs. The real bottleneck is not at the comparison stage — it is upstream, at the point where options are being considered or ruled out at all.</p>
           <p>Cognitive load compounds the problem. Adults searching for programs are often doing so at the margins of already-full lives — at night after work, navigating program websites between caregiving. Under these conditions, structured comparison becomes less likely. Heuristic shortcuts fill the gap.</p>
-          <p>When low-cost, flexible options appear in that narrowed set, a particular dynamic takes over. Programs that are free or near-free, online, and self-paced feel reversible — triggering a "why not?" mindset that short-circuits the kind of deliberation that might otherwise happen.</p>
         </div>
         <div>
           <div class="quote-card">
@@ -847,15 +1210,14 @@
     </div>
 
     <!-- INSIGHT 4 -->
-    <div class="insight-block fade-up">
+    <div id="ins4" class="insight-panel fade-up">
       <div class="insight-num">4</div>
       <h3>When formal signals fail, adults build workarounds — and the results are mixed</h3>
       <div class="insight-body">
         <div>
           <p>Adults don't give up when the formal information system fails them. They build workarounds: Reddit threads, coworkers who went through something similar, informal networks that traffic in lived experience. For many, these are the primary decision infrastructure — the most useful information they encountered in the entire process.</p>
           <p>Informal channels do real things well. They provide practical insight that formal sources rarely offer — what the workload actually feels like, what employers in a specific city think of a credential, what the hidden steps are that a program website glosses over. But they are inconsistent in ways that matter: anecdotes substitute for data, success stories are overrepresented, and mismatches cluster predictably where formal signals are weakest.</p>
-          <p>Adults trust institutional sources and knowledgeable people far more than informal channels — they rate college counselors, college websites, and official tools as most trustworthy. But those sources are rarely available when decisions are actually being made. Adults are not choosing informal channels because they prefer them. They are defaulting to them because the more trusted alternatives are effectively out of reach.</p>
-          <p>The demand for something better is real and clearly expressed. Adults described exactly what they would want: comparable data, side-by-side program information, realistic timelines, honest employer recognition signals. The supply simply isn't there.</p>
+          <p>Adults trust institutional sources and knowledgeable people far more than informal channels. But those sources are rarely available when decisions are actually being made. Adults are not choosing informal channels because they prefer them. They are defaulting to them because the more trusted alternatives are effectively out of reach.</p>
         </div>
         <div>
           <div class="quote-card">
@@ -883,139 +1245,182 @@
     <div class="section-eyebrow">Decision Map</div>
     <h2>How adults actually navigate the decision</h2>
     <p>The map below traces the decision process as our research describes it. Adults don't follow a single path. Some arrive still working through whether school is the right move at all. Others have resolved that question and are focused on which program will deliver what they need. What both groups share is a decision environment that works against them at every stage.</p>
-    <div class="map-container">
-      <svg width="100%" viewBox="0 0 680 710" role="img" xmlns="http://www.w3.org/2000/svg">
-        <title>Adult learner decision map</title>
-        <desc>A unified decision flowchart for working adult learners showing a single process with archetype divergence annotations and structural constraints embedded within each stage.</desc>
-        <defs>
-          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </marker>
-          <mask id="textgap">
-            <rect x="0" y="0" width="680" height="710" fill="white"/>
-            <rect x="217" y="11" width="186" height="22" fill="black" rx="2"/>
-            <rect x="129" y="38" width="82" height="20" fill="black" rx="2"/>
-            <rect x="241" y="38" width="82" height="20" fill="black" rx="2"/>
-            <rect x="351" y="38" width="93" height="20" fill="black" rx="2"/>
-            <rect x="471" y="38" width="98" height="20" fill="black" rx="2"/>
-            <rect x="242" y="59" width="136" height="20" fill="black" rx="2"/>
-            <rect x="227" y="73" width="166" height="20" fill="black" rx="2"/>
-          </mask>
-        </defs>
 
-        <!-- TITLE -->
-        <text x="310" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#D9E1E2" font-family="'DM Sans', sans-serif">Adult learner decision map</text>
+    <div class="map-wrapper">
+      <div class="decision-map">
 
-        <!-- LEGEND -->
-        <rect x="118" y="38" width="11" height="11" rx="2" fill="#004357"/>
-        <text x="133" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Upstream only</text>
-        <rect x="230" y="38" width="11" height="11" rx="2" fill="#087084"/>
-        <text x="245" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Shared stage</text>
-        <rect x="340" y="38" width="11" height="11" rx="2" fill="#EF6A00" fill-opacity="0.25" stroke="#EF6A00" stroke-width="1"/>
-        <text x="355" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Feasibility gate</text>
-        <rect x="460" y="38" width="11" height="11" rx="2" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
-        <text x="475" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Constraint layer</text>
+        <!-- Legend -->
+        <div class="map-legend">
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#004357"></div>
+            Upstream only
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:#087084"></div>
+            Shared stage
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:rgba(239,106,0,0.25);border:1px solid rgba(239,106,0,0.6)"></div>
+            Feasibility gate
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background:rgba(239,106,0,0.12);border:1px solid rgba(239,106,0,0.3)"></div>
+            Constraint layer
+          </div>
+        </div>
 
-        <!-- ENTRY LABELS -->
-        <text x="310" y="68" text-anchor="middle" fill="#9BB5BE" font-size="12" font-weight="500" font-family="'DM Sans', sans-serif">Upstream learner enters here ↓</text>
-        <text x="310" y="82" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Downstream learner skips to stage 3 ↓</text>
+        <!-- Entry note -->
+        <div class="map-entry-labels">
+          <div style="color:rgba(217,225,226,0.6)">↓ Upstream learner enters here (stage 1)</div>
+          <div style="color:#087084">Downstream learner joins at stage 3 →</div>
+        </div>
 
-        <!-- STAGE 1 -->
-        <rect x="118" y="92" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
-        <text x="310" y="112" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Do I want to go to college?</text>
-        <rect x="118" y="132" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
-        <text x="310" y="145" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Constraints already shaping what feels possible</text>
-        <!-- Stage 1 callout -->
-        <rect x="520" y="92" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
-        <text x="532" y="110" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
-        <text x="532" y="126" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Adults are deliberate.</text>
-        <text x="532" y="142" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">College is not a default.</text>
-        <text x="532" y="156" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Narratives dominate.</text>
-        <line x1="502" y1="126" x2="520" y2="126" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
-        <!-- NO -->
-        <line x1="118" y1="112" x2="90" y2="112" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="104" y="106" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
-        <!-- YES -->
-        <line x1="310" y1="158" x2="310" y2="182" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="326" y="174" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
+        <!-- FLOW -->
+        <div class="map-flow">
 
-        <!-- STAGE 2 -->
-        <rect x="118" y="184" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
-        <text x="310" y="204" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Should I go to college?</text>
-        <rect x="118" y="224" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
-        <text x="310" y="237" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">"Can I actually make this work given my life?"</text>
-        <!-- Stage 2 callout -->
-        <rect x="520" y="184" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
-        <text x="532" y="202" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
-        <text x="532" y="218" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Identity barriers are not</text>
-        <text x="532" y="234" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">the primary issue.</text>
-        <text x="532" y="248" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Upstream learners hold open.</text>
-        <line x1="502" y1="218" x2="520" y2="218" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
-        <!-- NO -->
-        <line x1="118" y1="204" x2="90" y2="204" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="104" y="198" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
-        <!-- YES -->
-        <line x1="310" y1="250" x2="310" y2="284" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="326" y="271" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
-        <!-- Downstream entry -->
-        <line x1="590" y1="274" x2="506" y2="300" stroke="#087084" stroke-width="1.2" stroke-dasharray="4 2" marker-end="url(#arrow)" mask="url(#textgap)"/>
-        <text x="596" y="266" fill="#087084" font-size="12" font-family="'DM Sans', sans-serif">Downstream</text>
-        <text x="596" y="280" fill="#087084" font-size="12" font-family="'DM Sans', sans-serif">enters here</text>
+          <!-- STAGE 1 -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage upstream">
+                <div class="map-stage-label">Do I want to go to college?</div>
+              </div>
+              <div class="map-constraint">Constraints already shaping what feels possible</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:4px;padding:0 8px;">
+                <div style="font-size:11px;color:var(--cayenne);font-weight:700;">← NO: Forgo enrollment</div>
+                <div style="font-size:11px;color:var(--green-apple);font-weight:700;">YES ↓</div>
+              </div>
+            </div>
+            <div class="map-callout">
+              <div class="map-callout-label">Finding</div>
+              <p>Adults are deliberate. College is not a default. Peer narratives and family experience dominate this stage.</p>
+            </div>
+          </div>
 
-        <!-- STAGE 3 -->
-        <rect x="118" y="286" width="384" height="40" rx="6" fill="#087084" stroke="#087084" stroke-width="0.5"/>
-        <text x="310" y="306" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">What type of program?</text>
-        <rect x="118" y="326" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
-        <text x="310" y="339" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Schedule, transport, cost, caregiving narrow the set</text>
-        <!-- Stage 3 callout -->
-        <rect x="520" y="286" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
-        <text x="532" y="304" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
-        <text x="532" y="320" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Possible vs. impossible —</text>
-        <text x="532" y="336" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">not good vs. better.</text>
-        <text x="532" y="352" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Familiarity fills the gap.</text>
-        <line x1="502" y1="320" x2="520" y2="320" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
-        <!-- Feasibility gate -->
-        <line x1="310" y1="352" x2="310" y2="378" stroke="#004357" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <rect x="118" y="380" width="384" height="40" rx="6" fill="#EF6A00" fill-opacity="0.18" stroke="#EF6A00" stroke-width="1"/>
-        <text x="310" y="400" text-anchor="middle" dominant-baseline="central" fill="#7A3000" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Can I afford this type of program?</text>
-        <!-- NO -->
-        <line x1="118" y1="400" x2="90" y2="400" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="104" y="394" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
-        <!-- YES -->
-        <line x1="310" y1="420" x2="310" y2="448" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <text x="326" y="438" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
+          <div style="display:flex;justify-content:center;width:calc(100% - 220px);margin-left:0;">
+            <div class="map-arrow" style="width:2px;height:28px;background:transparent;position:relative;margin:0 auto;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);width:1.5px;height:100%;background:var(--green-apple);"></div>
+              <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--green-apple);"></div>
+            </div>
+          </div>
 
-        <!-- STAGE 4 -->
-        <rect x="118" y="450" width="384" height="40" rx="6" fill="#7AC10A" stroke="#7AC10A" stroke-width="0.5"/>
-        <text x="310" y="470" text-anchor="middle" dominant-baseline="central" fill="#1a3a0a" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">What program should I pursue?</text>
-        <rect x="118" y="490" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
-        <text x="310" y="503" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Time-to-completion, schedules, cost of longer programs</text>
-        <!-- Stage 4 callout -->
-        <rect x="520" y="450" width="142" height="82" rx="6" fill="#1a3a45" stroke="#7AC10A" stroke-width="0.5"/>
-        <text x="532" y="468" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
-        <text x="532" y="484" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Value matters most here</text>
-        <text x="532" y="500" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">— but information is</text>
-        <text x="532" y="516" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">fragmented and trade-offs</text>
-        <text x="532" y="530" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">are never made explicit.</text>
-        <line x1="502" y1="484" x2="520" y2="484" stroke="#7AC10A" stroke-width="0.5" stroke-dasharray="3 2"/>
+          <!-- STAGE 2 -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage upstream">
+                <div class="map-stage-label">Should I go to college?</div>
+              </div>
+              <div class="map-constraint">"Can I actually make this work given my life?"</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:4px;padding:0 8px;">
+                <div style="font-size:11px;color:var(--cayenne);font-weight:700;">← NO: Forgo enrollment</div>
+                <div style="font-size:11px;color:var(--green-apple);font-weight:700;">YES ↓</div>
+              </div>
+            </div>
+            <div class="map-callout">
+              <div class="map-callout-label">Finding</div>
+              <p>Identity barriers are not the primary issue. Upstream learners hold open. Practical feasibility dominates.</p>
+            </div>
+          </div>
 
-        <!-- ENROLL -->
-        <line x1="310" y1="516" x2="310" y2="546" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <rect x="118" y="548" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
-        <text x="310" y="568" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Enroll</text>
+          <div style="display:flex;align-items:center;gap:12px;margin:4px 0;padding-right:220px;">
+            <div style="display:flex;align-items:center;gap:8px;flex:1;justify-content:center;position:relative;height:28px;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);width:1.5px;height:100%;background:var(--green-apple);"></div>
+              <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--green-apple);"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:8px;padding-right:228px;">
+            <div style="font-size:12px;color:#087084;font-style:italic;padding-right:8px;">← Downstream learner enters here</div>
+          </div>
 
-        <!-- FORGO -->
-        <line x1="72" y1="112" x2="72" y2="400" stroke="#EF6A00" stroke-width="1" stroke-dasharray="3 2"/>
-        <line x1="72" y1="400" x2="72" y2="648" stroke="#EF6A00" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrow)"/>
-        <rect x="28" y="650" width="148" height="40" rx="6" fill="#EF6A00" fill-opacity="0.15" stroke="#EF6A00" stroke-width="1"/>
-        <text x="102" y="670" text-anchor="middle" dominant-baseline="central" fill="#7A3000" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Forgo enrollment</text>
+          <!-- STAGE 3 -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage shared">
+                <div class="map-stage-label">What type of program?</div>
+              </div>
+              <div class="map-constraint">Schedule, transport, cost, caregiving narrow the set</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:4px;padding-right:8px;">
+                <div style="font-size:11px;color:var(--green-apple);font-weight:700;">↓</div>
+              </div>
+            </div>
+            <div class="map-callout">
+              <div class="map-callout-label">Finding</div>
+              <p>Possible vs. impossible — not good vs. better. Familiarity and proximity fill the gap when options are unclear.</p>
+            </div>
+          </div>
 
-        <!-- BOTTOM NOTE -->
-        <rect x="118" y="608" width="524" height="70" rx="6" fill="rgba(28,138,112,0.15)" stroke="#1C8A70" stroke-width="0.5"/>
-        <text x="380" y="628" text-anchor="middle" fill="#D9E1E2" font-size="12" font-weight="600" font-family="'DM Sans', sans-serif">The navigation gap — present at every stage</text>
-        <text x="380" y="646" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Formal tools are rarely encountered. When official sources fail, adults rely on Reddit and peers.</text>
-        <text x="380" y="664" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">The missing layer: support that helps people act given their real constraints.</text>
-      </svg>
+          <div style="display:flex;height:28px;padding-right:220px;">
+            <div style="flex:1;display:flex;justify-content:center;position:relative;height:100%;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);width:1.5px;height:100%;background:var(--indigo);"></div>
+              <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--indigo);"></div>
+            </div>
+          </div>
+
+          <!-- FEASIBILITY GATE -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage gate">
+                <div class="map-stage-label">Can I afford this type of program?</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:6px;padding:0 8px;">
+                <div style="font-size:11px;color:var(--cayenne);font-weight:700;">← NO: Forgo enrollment</div>
+                <div style="font-size:11px;color:var(--green-apple);font-weight:700;">YES ↓</div>
+              </div>
+            </div>
+            <div class="map-callout" style="border-color:rgba(239,106,0,0.4);">
+              <div class="map-callout-label" style="color:var(--cayenne);">Feasibility Gate</div>
+              <p>Free + online + self-paced triggers "why not?" shortcuts that often bypass deeper evaluation entirely.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;height:28px;padding-right:220px;">
+            <div style="flex:1;display:flex;justify-content:center;position:relative;height:100%;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);width:1.5px;height:100%;background:var(--green-apple);"></div>
+              <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--green-apple);"></div>
+            </div>
+          </div>
+
+          <!-- STAGE 4 -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage shared" style="background:#4a8c10;border-color:var(--green-apple);">
+                <div class="map-stage-label" style="color:#fff;">What program should I pursue?</div>
+              </div>
+              <div class="map-constraint">Time-to-completion, schedules, cost of longer programs</div>
+              <div style="display:flex;justify-content:flex-end;margin-top:4px;padding-right:8px;">
+                <div style="font-size:11px;color:var(--green-apple);font-weight:700;">↓ Enroll</div>
+              </div>
+            </div>
+            <div class="map-callout" style="border-color:rgba(122,193,10,0.4);">
+              <div class="map-callout-label">Finding</div>
+              <p>Value matters most here — but program-level outcome data is fragmented and tradeoffs are never made explicit.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;height:28px;padding-right:220px;">
+            <div style="flex:1;display:flex;justify-content:center;position:relative;height:100%;">
+              <div style="position:absolute;left:50%;transform:translateX(-50%);width:1.5px;height:100%;background:var(--green-apple);"></div>
+              <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--green-apple);"></div>
+            </div>
+          </div>
+
+          <!-- ENROLL -->
+          <div class="map-row">
+            <div class="map-stage-col">
+              <div class="map-stage enroll-stage" style="background:var(--spruce);">
+                <div class="map-stage-label">Enroll</div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+
+          <!-- BOTTOM NOTE -->
+          <div class="map-bottom-note" style="margin-top:24px;">
+            <strong>The navigation gap — present at every stage</strong>
+            <p>Formal tools are rarely encountered. When official sources fail, adults rely on Reddit, peers, and gut feeling. The missing layer: support that helps people act on their real constraints and stated values.</p>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1053,21 +1458,24 @@
           <p>A structured, human-supported session that helps an adult work through their decision at the moment it matters most — not an information dump, but a facilitated process that surfaces constraints, clarifies tradeoffs, and produces a concrete next step.</p>
           <div class="concept-mechanism">
             <div class="mech-label">Behavioral mechanism</div>
-            <p>Simplification and structure at the decision moment. Reduces choice overload and paralysis. Human support creates accountability that unstructured self-directed research rarely produces.</p>
+            <p>Simplification and structure at the decision moment. Reduces choice overload. Human support creates accountability that unstructured self-directed research rarely produces.</p>
           </div>
-          <div class="concept-insights">
-            <span class="insight-tag">Insight 1</span>
-            <span class="insight-tag">Insight 2</span>
-            <span class="insight-tag">Insight 3</span>
+          <div class="concept-footer">
+            <div class="concept-insights">
+              <span class="insight-tag">Insight 1</span>
+              <span class="insight-tag">Insight 2</span>
+              <span class="insight-tag">Insight 3</span>
+            </div>
+            <button class="toggle-btn" onclick="toggleDetail(this)">How it works <span class="arrow">↓</span></button>
           </div>
-          <button class="toggle-btn" onclick="toggleDetail(this)">
-            How it works in practice <span class="arrow">↓</span>
-          </button>
         </div>
         <div class="concept-detail">
-          <p>A session begins with a brief intake: What are you trying to achieve? What constraints are non-negotiable right now — schedule, cost, location, time to completion? What does success look like in two years? From there, a navigator helps the adult map their goals against programs they're considering — not comparing surface features, but surfacing the questions adults don't know to ask: What do employers actually think of this credential? What do graduates from this specific program earn? Are there steps after completion not visible in the program description?</p>
-          <p>The session ends with a concrete next step — not necessarily a final decision, but a specific action: an application to complete, a financial aid office to contact, a program visit to schedule.</p>
-          <p><em>Primary actors: CBOs, navigators, college advising offices.</em></p>
+          <div class="concept-detail-inner">
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Brief intake: goals, non-negotiable constraints, definition of success in two years</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Navigator maps goals against programs being considered, surfacing questions adults don't know to ask</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Session ends with a concrete next step — an application, a financial aid office to contact, a program visit</span></div>
+          </div>
+          <div class="detail-actor">Primary actors: CBOs, navigators, college advising offices</div>
         </div>
       </div>
 
@@ -1081,20 +1489,23 @@
           <p>Flips the standard decision sequence by surfacing real-world constraints before presenting options — treating feasibility as a design input rather than an afterthought. Prevents wasted cognitive effort on options that were never viable.</p>
           <div class="concept-mechanism">
             <div class="mech-label">Behavioral mechanism</div>
-            <p>Feasibility-first filtering. Structures the decision environment so cognitive effort goes toward comparing viable options, not eliminating impossible ones. Prevents late-stage discouragement.</p>
+            <p>Feasibility-first filtering. Cognitive effort goes toward comparing viable options, not eliminating impossible ones. Prevents late-stage discouragement.</p>
           </div>
-          <div class="concept-insights">
-            <span class="insight-tag">Insight 3</span>
-            <span class="insight-tag">Insight 4</span>
+          <div class="concept-footer">
+            <div class="concept-insights">
+              <span class="insight-tag">Insight 3</span>
+              <span class="insight-tag">Insight 4</span>
+            </div>
+            <button class="toggle-btn" onclick="toggleDetail(this)">How it works <span class="arrow">↓</span></button>
           </div>
-          <button class="toggle-btn" onclick="toggleDetail(this)">
-            How it works in practice <span class="arrow">↓</span>
-          </button>
         </div>
         <div class="concept-detail">
-          <p>Any touchpoint in the decision process — a digital tool, an advising intake, a CBO session — begins by surfacing what an adult's real-world parameters are: How many hours per week can you realistically commit? Do you need online, in-person, or hybrid? What's your hard ceiling on cost, including indirect costs like transportation and childcare? Do you have a timeline driven by employment or family circumstances?</p>
-          <p>Only once those parameters are established does the conversation turn to options — and the options presented are those that actually fit within those parameters. This represents a meaningful departure from how most program search currently works.</p>
-          <p><em>Primary actors: CBOs, navigators, digital tool developers, institutions designing program search experiences. Amanda flagged this as a priority concept.</em></p>
+          <div class="concept-detail-inner">
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Opens with hard parameters: hours per week, online/in-person, cost ceiling, timeline constraints</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Only once parameters are set do options appear — and only those that fit within them</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Works as a digital tool, advising intake, or CBO session structure</span></div>
+          </div>
+          <div class="detail-actor">Primary actors: CBOs, navigators, digital tool developers, institutions. Flagged as a priority concept.</div>
         </div>
       </div>
 
@@ -1105,23 +1516,26 @@
           <h3>Compare &amp; Choose</h3>
         </div>
         <div class="concept-body">
-          <p>Makes implicit tradeoffs explicit — presenting programs an adult is considering against a common set of decision-relevant dimensions: realistic cost, credential recognition, graduate outcomes at the program level, time to completion, and hidden requirements.</p>
+          <p>Makes implicit tradeoffs explicit — presenting programs an adult is considering against decision-relevant dimensions: realistic cost, credential recognition, graduate outcomes at the program level, time to completion, and hidden requirements.</p>
           <div class="concept-mechanism">
             <div class="mech-label">Behavioral mechanism</div>
-            <p>Tradeoff clarification. Makes the comparison adults are implicitly trying to make visible, rather than leaving it to be assembled from fragmented sources. Reduces reliance on misleading surface cues.</p>
+            <p>Tradeoff clarification. Makes the comparison adults are trying to make visible, rather than leaving it assembled from fragmented sources. Reduces reliance on misleading surface cues.</p>
           </div>
-          <div class="concept-insights">
-            <span class="insight-tag">Insight 2</span>
-            <span class="insight-tag">Insight 3</span>
+          <div class="concept-footer">
+            <div class="concept-insights">
+              <span class="insight-tag">Insight 2</span>
+              <span class="insight-tag">Insight 3</span>
+            </div>
+            <button class="toggle-btn" onclick="toggleDetail(this)">How it works <span class="arrow">↓</span></button>
           </div>
-          <button class="toggle-btn" onclick="toggleDetail(this)">
-            How it works in practice <span class="arrow">↓</span>
-          </button>
         </div>
         <div class="concept-detail">
-          <p>An adult starts by identifying the two or three programs they're genuinely considering. A tool or navigator then populates what is known about each — drawing on College Scorecard data, labor market information, and program-specific outcome data — and flags explicitly where data is missing or uncertain. An adult who said time to completion is her most important constraint sees that foregrounded. An adult for whom employer recognition is the deciding factor gets that dimension highlighted.</p>
-          <p>Rather than presenting a recommendation, it surfaces the questions an adult should be asking and helps them weigh those against their own stated priorities.</p>
-          <p><em>Primary actors: CBOs, navigators, digital tool developers. Note: effectiveness depends on program-level data availability — a systemic gap that policy actors are best positioned to address.</em></p>
+          <div class="concept-detail-inner">
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Adult identifies 2–3 programs they're genuinely considering; tool populates known data on each</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Missing data is flagged explicitly — absence reads as a red flag, not a blank</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Surfaces questions to ask rather than a single recommendation</span></div>
+          </div>
+          <div class="detail-actor">Primary actors: CBOs, digital tool developers. Note: effectiveness depends on program-level data availability — a gap policy actors must address.</div>
         </div>
       </div>
 
@@ -1135,21 +1549,24 @@
           <p>Embeds knowledgeable, trustworthy human support into the decision process through the channels adults already trust — not by creating new advisors, but by equipping people who already occupy trusted roles in adults' lives.</p>
           <div class="concept-mechanism">
             <div class="mech-label">Behavioral mechanism</div>
-            <p>Channel effect. The same information, delivered by a trusted source through a trusted channel, carries more weight and is more likely to be acted on than the same information through a low-trust channel.</p>
+            <p>Channel effect. The same information, delivered through a trusted source, carries more weight and is more likely to be acted on than identical information through a low-trust channel.</p>
           </div>
-          <div class="concept-insights">
-            <span class="insight-tag">Insight 1</span>
-            <span class="insight-tag">Insight 2</span>
-            <span class="insight-tag">Insight 4</span>
+          <div class="concept-footer">
+            <div class="concept-insights">
+              <span class="insight-tag">Insight 1</span>
+              <span class="insight-tag">Insight 2</span>
+              <span class="insight-tag">Insight 4</span>
+            </div>
+            <button class="toggle-btn" onclick="toggleDetail(this)">How it works <span class="arrow">↓</span></button>
           </div>
-          <button class="toggle-btn" onclick="toggleDetail(this)">
-            How it works in practice <span class="arrow">↓</span>
-          </button>
         </div>
         <div class="concept-detail">
-          <p>A CBO might train existing staff to conduct brief, structured decision conversations as part of services adults are already accessing. An employer offering tuition support might designate an HR contact who walks employees through program options rather than directing them to a benefits portal. A community college might recruit and train recent graduates as peer advisors.</p>
-          <p>This concept spans the full decision spectrum. Upstream, it helps adults work through whether and what to pursue — a stage where formal tools and institutional marketing have almost no traction, but a credible conversation with someone who has navigated a similar decision can be decisive. Trusted Intermediaries and Guided Choice Sessions are most powerful in combination.</p>
-          <p><em>Primary actors: CBOs, community organizations, employers, peer navigator programs. Amanda flagged this as a priority concept.</em></p>
+          <div class="concept-detail-inner">
+            <div class="detail-point"><div class="detail-point-icon"></div><span>CBOs train existing staff to run brief decision conversations in services adults already access</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Employers with tuition support designate an HR contact who walks employees through options — not just a portal</span></div>
+            <div class="detail-point"><div class="detail-point-icon"></div><span>Peer navigators who have personally completed similar programs are among the highest-leverage investments</span></div>
+          </div>
+          <div class="detail-actor">Primary actors: CBOs, community organizations, employers, peer navigator programs. Flagged as a priority concept.</div>
         </div>
       </div>
     </div>
@@ -1216,12 +1633,30 @@
 <!-- FOOTER -->
 <footer>
   <div>
-    <strong>Navigating the Gap</strong><br>
-    ideas42 &amp; College Futures Foundation — 2026
+    <div class="footer-logo" style="margin-bottom:10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 806 355" aria-label="ideas42">
+        <defs><style>.cls-1{fill:#004357}.cls-2{fill:#7ac10a;fill-rule:evenodd}</style></defs>
+        <g>
+          <path class="cls-1" d="M3,178.46c0-5.15,1.91-9.65,5.74-13.48,3.82-3.82,8.67-5.74,14.54-5.74s10.81,1.82,14.81,5.47c4,3.65,6,8.23,6,13.74s-2,10.1-6,13.75c-4,3.65-8.94,5.47-14.81,5.47s-10.72-1.91-14.54-5.74c-3.83-3.83-5.74-8.32-5.74-13.48ZM7.54,221.97h32.02v128.11H7.54v-128.11Z"/>
+          <path class="cls-1" d="M161.93,330.86h-.53c-4.63,7.83-10.85,13.53-18.68,17.08-7.83,3.56-16.28,5.34-25.35,5.34-9.97,0-18.82-1.73-26.56-5.2-7.74-3.47-14.37-8.23-19.88-14.28-5.52-6.05-9.7-13.17-12.54-21.35-2.85-8.18-4.27-16.99-4.27-26.42s1.51-18.24,4.54-26.42c3.02-8.18,7.25-15.3,12.68-21.35,5.43-6.05,11.97-10.81,19.62-14.28,7.65-3.47,16.01-5.2,25.09-5.2,6.05,0,11.39.62,16.01,1.87,4.63,1.25,8.72,2.85,12.28,4.8,3.56,1.96,6.58,4.05,9.07,6.27,2.49,2.23,4.54,4.41,6.14,6.54h.8v-89.94h32.02v201.77h-30.43v-19.22ZM86.13,286.02c0,4.98.84,9.79,2.54,14.41,1.69,4.63,4.18,8.72,7.47,12.27,3.29,3.56,7.25,6.41,11.88,8.54,4.63,2.14,9.88,3.2,15.75,3.2s11.12-1.07,15.75-3.2c4.63-2.14,8.58-4.98,11.88-8.54,3.29-3.56,5.78-7.65,7.47-12.27,1.69-4.63,2.53-9.43,2.53-14.41s-.84-9.78-2.53-14.41c-1.69-4.63-4.18-8.72-7.47-12.28-3.29-3.56-7.25-6.41-11.88-8.54-4.63-2.13-9.87-3.2-15.75-3.2s-11.12,1.07-15.75,3.2c-4.63,2.14-8.59,4.98-11.88,8.54-3.3,3.56-5.79,7.65-7.47,12.28-1.69,4.63-2.54,9.43-2.54,14.41Z"/>
+          <path class="cls-1" d="M239.03,297.23c1.07,9.61,4.81,17.08,11.21,22.42,6.4,5.34,14.14,8.01,23.22,8.01,8.01,0,14.72-1.64,20.15-4.93,5.43-3.29,10.19-7.43,14.28-12.41l22.95,17.35c-7.47,9.25-15.84,15.84-25.09,19.75-9.25,3.91-18.95,5.87-29.09,5.87-9.61,0-18.68-1.6-27.22-4.8-8.54-3.2-15.93-7.74-22.15-13.61-6.23-5.87-11.17-12.95-14.81-21.22-3.65-8.27-5.47-17.48-5.47-27.63s1.82-19.35,5.47-27.62c3.65-8.28,8.58-15.35,14.81-21.22,6.22-5.87,13.61-10.41,22.15-13.61,8.54-3.2,17.62-4.8,27.22-4.8,8.89,0,17.03,1.56,24.42,4.67,7.38,3.12,13.7,7.61,18.95,13.48,5.25,5.88,9.34,13.13,12.28,21.75,2.94,8.63,4.4,18.55,4.4,29.76v8.81h-97.68ZM304.69,273.21c-.18-9.43-3.12-16.86-8.81-22.29-5.7-5.43-13.61-8.14-23.75-8.14-9.61,0-17.21,2.76-22.82,8.27-5.61,5.52-9.03,12.9-10.28,22.15h65.66Z"/>
+          <path class="cls-1" d="M431.06,332.46h-.8c-4.63,7.29-10.5,12.59-17.62,15.88-7.12,3.29-14.95,4.94-23.49,4.94-5.87,0-11.61-.8-17.21-2.4-5.61-1.6-10.59-4.01-14.95-7.21-4.36-3.2-7.87-7.2-10.54-12.01-2.67-4.8-4-10.41-4-16.82,0-6.94,1.24-12.85,3.74-17.75,2.49-4.89,5.83-8.98,10.01-12.27,4.18-3.29,9.03-5.92,14.54-7.88,5.51-1.96,11.25-3.42,17.21-4.4,5.96-.98,11.97-1.6,18.01-1.87,6.05-.27,11.74-.4,17.08-.4h8.01v-3.47c0-8.01-2.76-14.01-8.27-18.01-5.52-4-12.54-6-21.08-6-6.76,0-13.08,1.2-18.95,3.6-5.87,2.4-10.94,5.65-15.21,9.74l-16.81-16.82c7.11-7.29,15.43-12.54,24.96-15.74,9.52-3.2,19.35-4.8,29.49-4.8,9.07,0,16.72,1.02,22.95,3.07,6.23,2.05,11.38,4.67,15.48,7.87,4.09,3.2,7.25,6.9,9.48,11.08,2.22,4.19,3.82,8.41,4.8,12.68.98,4.27,1.55,8.41,1.73,12.41.18,4.01.27,7.52.27,10.54v73.66h-28.82v-17.61ZM429.19,292.69h-6.67c-4.45,0-9.43.18-14.95.53-5.52.36-10.72,1.2-15.61,2.54-4.9,1.33-9.03,3.29-12.41,5.87-3.38,2.58-5.07,6.19-5.07,10.81,0,3.03.67,5.56,2,7.61,1.33,2.05,3.07,3.78,5.2,5.2,2.14,1.43,4.54,2.45,7.21,3.07,2.67.62,5.34.93,8.01.93,11.03,0,19.17-2.62,24.42-7.87,5.25-5.25,7.87-12.41,7.87-21.49v-7.2Z"/>
+          <path class="cls-1" d="M548.81,257.46c-6.23-8.71-14.59-13.08-25.09-13.08-4.27,0-8.45,1.07-12.54,3.2-4.1,2.14-6.14,5.61-6.14,10.41,0,3.92,1.69,6.76,5.07,8.54,3.38,1.78,7.65,3.29,12.81,4.54,5.16,1.25,10.72,2.54,16.68,3.87,5.96,1.33,11.52,3.38,16.68,6.14,5.16,2.76,9.43,6.54,12.81,11.35,3.38,4.8,5.07,11.39,5.07,19.75,0,7.65-1.65,14.1-4.94,19.35-3.29,5.25-7.56,9.48-12.81,12.68-5.25,3.2-11.17,5.52-17.75,6.94-6.59,1.42-13.17,2.14-19.75,2.14-9.97,0-19.13-1.43-27.49-4.27-8.36-2.84-15.84-8.01-22.42-15.48l21.35-20.02c4.09,4.63,8.49,8.41,13.21,11.35,4.71,2.93,10.45,4.4,17.21,4.4,2.31,0,4.71-.27,7.2-.8,2.49-.53,4.81-1.42,6.94-2.67,2.13-1.24,3.87-2.8,5.2-4.67,1.33-1.87,2-4.04,2-6.54,0-4.45-1.69-7.74-5.07-9.88-3.38-2.13-7.65-3.87-12.81-5.2-5.16-1.33-10.72-2.58-16.68-3.74-5.96-1.15-11.52-3.02-16.68-5.61-5.16-2.58-9.43-6.18-12.81-10.81-3.38-4.62-5.07-11.03-5.07-19.21,0-7.11,1.47-13.3,4.4-18.55,2.94-5.24,6.81-9.56,11.61-12.95,4.8-3.37,10.32-5.87,16.55-7.47,6.23-1.6,12.54-2.4,18.95-2.4,8.54,0,16.99,1.46,25.36,4.4,8.36,2.93,15.12,7.97,20.28,15.08l-21.35,19.21Z"/>
+        </g>
+        <g>
+          <polygon class="cls-2" points="580.99 160.43 608.75 160.43 608.75 117.83 608.4 117.83 580.99 160.43"/>
+          <path class="cls-2" d="M653.08,1.72c-82.8,0-149.92,67.12-149.92,149.92,0,19.32,3.7,37.77,10.35,54.73,13.54-1.68,27.44-.27,40.77,4.41,10.91,3.83,19.86,10.49,26.61,19.79l6.99,9.63-30.15,27.13c25.91,21.38,59.13,34.22,95.34,34.22,82.8,0,149.92-67.12,149.92-149.92S735.88,1.72,653.08,1.72ZM649.77,182.42h-15.89v24.79h-25.14v-24.79h-53.94v-22l50.45-76.81h28.63v76.81h15.89v22ZM743.5,207.21h-86.24v-27.76l48.01-43.12c2.44-2.21,4.89-4.71,7.33-7.51,2.44-2.79,3.67-6.05,3.67-9.78,0-4.19-1.51-7.48-4.54-9.86-3.03-2.38-6.58-3.58-10.65-3.58-4.89,0-8.7,1.51-11.43,4.54-2.74,3.03-4.28,6.75-4.63,11.17l-26.19-1.92c.35-6.4,1.69-11.96,4.02-16.67,2.33-4.71,5.41-8.64,9.25-11.78,3.84-3.14,8.35-5.5,13.53-7.07,5.18-1.57,10.79-2.36,16.85-2.36,5.59,0,10.82.79,15.71,2.36,4.89,1.57,9.14,3.9,12.74,6.98,3.61,3.09,6.43,6.96,8.47,11.61,2.03,4.66,3.05,10.07,3.05,16.24,0,3.96-.41,7.54-1.22,10.74-.81,3.2-1.95,6.11-3.4,8.73-1.46,2.62-3.17,5.04-5.15,7.24-1.98,2.21-4.13,4.36-6.46,6.46l-37.53,32.3h54.82v23.04Z"/>
+        </g>
+      </svg>
+    </div>
+    <div style="color:rgba(255,255,255,0.4);font-size:12px;">
+      <strong style="color:white;">Navigating the Gap</strong><br>
+      Behavioral research on postsecondary decision-making<br>for working adults in California — 2026
+    </div>
   </div>
-  <div style="text-align: right;">
-    Behavioral research on postsecondary decision-making<br>
-    for working adults in California
+  <div style="text-align: right; color:rgba(255,255,255,0.35); font-size:12px; line-height:1.7;">
+    Funded by the College Futures Foundation<br>
+    ideas42 · ideas42.org
   </div>
 </footer>
 
@@ -1234,7 +1669,7 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
@@ -1245,7 +1680,6 @@
     detail.classList.toggle('open', !isOpen);
     btn.classList.toggle('open', !isOpen);
     btn.querySelector('.arrow').textContent = isOpen ? '↓' : '↑';
-    btn.childNodes[0].textContent = isOpen ? 'How it works in practice ' : 'Hide details ';
   }
 
   // Actor tabs
@@ -1255,6 +1689,19 @@
     btn.classList.add('active');
     document.getElementById('tab-' + id).classList.add('active');
   }
+
+  // Insight tabs
+  function switchInsight(btn, id) {
+    document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Recolor nav + footer SVG logos to white wordmark
+  document.querySelectorAll('.nav-logo svg .cls-1, .footer-logo svg .cls-1').forEach(el => {
+    el.style.fill = 'white';
+  });
 </script>
 </body>
 </html>
