@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigating the Gap — ideas42 & College Futures Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #004357;
+    --spruce: #1C8A70;
+    --deep-sea: #087084;
+    --green-apple: #7AC10A;
+    --cayenne: #EF6A00;
+    --citrus: #FCAB38;
+    --lichen: #D1E03B;
+    --rain: #D9E1E2;
+    --black: #000000;
+    --off-white: #F5F3EE;
+    --light-teal: #E8F4F6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--black);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--indigo);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--rain);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span {
+    color: var(--green-apple);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--rain);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    padding: 140px 80px 100px;
+    background: var(--indigo);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(122,193,10,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-apple);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1.5px;
+    background: var(--green-apple);
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 400;
+    line-height: 1.1;
+    max-width: 800px;
+    color: white;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--lichen);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--rain);
+    max-width: 600px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    opacity: 0.85;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .hero-stat {
+    border-left: 2px solid var(--green-apple);
+    padding-left: 16px;
+  }
+
+  .hero-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat .label {
+    font-size: 13px;
+    color: var(--rain);
+    opacity: 0.7;
+    max-width: 160px;
+    line-height: 1.4;
+  }
+
+  /* SECTION SHELL */
+  section {
+    padding: 96px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 80px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--deep-sea);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--deep-sea);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--indigo);
+    margin-bottom: 28px;
+  }
+
+  h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--indigo);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  p { margin-bottom: 20px; color: #222; }
+  p:last-child { margin-bottom: 0; }
+
+  /* EXEC SUMMARY */
+  #exec {
+    background: white;
+    border-top: 4px solid var(--green-apple);
+  }
+
+  .exec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .exec-card {
+    padding: 32px;
+    border-radius: 4px;
+    border-left: 3px solid var(--deep-sea);
+    background: var(--off-white);
+  }
+
+  .exec-card h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--deep-sea);
+    margin-bottom: 12px;
+  }
+
+  .exec-card p { font-size: 15px; color: #333; }
+
+  /* PROBLEM */
+  #problem {
+    background: var(--indigo);
+    color: white;
+  }
+
+  #problem .section-eyebrow { color: var(--lichen); }
+  #problem .section-eyebrow::before { background: var(--lichen); }
+  #problem h2 { color: white; }
+  #problem p { color: rgba(255,255,255,0.82); }
+
+  .disproof-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(122,193,10,0.3);
+    border-radius: 6px;
+    padding: 32px 36px;
+    margin-top: 48px;
+  }
+
+  .disproof-box h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-apple);
+    margin-bottom: 20px;
+  }
+
+  .disproof-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .disproof-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  .disproof-list li::before {
+    content: '×';
+    color: var(--cayenne);
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* FINDINGS */
+  #findings { background: var(--off-white); }
+
+  .insight-block {
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(0,67,87,0.12);
+  }
+
+  .insight-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .insight-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--indigo);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .insight-body {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .quote-card {
+    background: white;
+    border-left: 3px solid var(--cayenne);
+    padding: 24px 28px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 20px;
+  }
+
+  .quote-card blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--indigo);
+    margin-bottom: 12px;
+  }
+
+  .quote-card cite {
+    font-size: 12px;
+    font-style: normal;
+    color: #777;
+    letter-spacing: 0.02em;
+  }
+
+  /* DECISION MAP */
+  #map {
+    background: var(--indigo);
+  }
+
+  #map .section-eyebrow { color: var(--lichen); }
+  #map .section-eyebrow::before { background: var(--lichen); }
+  #map h2 { color: white; }
+  #map p { color: rgba(255,255,255,0.8); max-width: 680px; margin-bottom: 48px; }
+
+  .map-container {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 40px;
+    overflow-x: auto;
+  }
+
+  .map-container svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* DESIGN CONCEPTS */
+  #design { background: white; }
+
+  .design-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 48px 0 64px;
+  }
+
+  .principle-card {
+    padding: 28px;
+    border-radius: 6px;
+    background: var(--off-white);
+    border-top: 3px solid var(--green-apple);
+  }
+
+  .principle-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--indigo);
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .principle-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .concept-card {
+    border: 1px solid rgba(0,67,87,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .concept-card:hover {
+    box-shadow: 0 8px 32px rgba(0,67,87,0.12);
+    transform: translateY(-2px);
+  }
+
+  .concept-header {
+    padding: 28px 28px 20px;
+    background: var(--indigo);
+    color: white;
+  }
+
+  .concept-header .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lichen);
+    margin-bottom: 10px;
+  }
+
+  .concept-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 0;
+  }
+
+  .concept-body {
+    padding: 28px;
+    background: white;
+  }
+
+  .concept-body p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .concept-mechanism {
+    background: var(--light-teal);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+
+  .concept-mechanism .mech-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--deep-sea);
+    margin-bottom: 6px;
+  }
+
+  .concept-mechanism p {
+    font-size: 14px;
+    color: var(--indigo);
+    margin-bottom: 0;
+  }
+
+  .concept-insights {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .insight-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(0,67,87,0.08);
+    color: var(--indigo);
+    letter-spacing: 0.03em;
+  }
+
+  .concept-detail {
+    display: none;
+    padding: 0 28px 28px;
+    background: white;
+    border-top: 1px solid rgba(0,67,87,0.08);
+  }
+
+  .concept-detail.open { display: block; }
+
+  .concept-detail p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--deep-sea);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .toggle-btn .arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+    font-size: 16px;
+  }
+
+  .toggle-btn.open .arrow { transform: rotate(180deg); }
+
+  /* IMPLEMENTING */
+  #implementing { background: var(--off-white); }
+
+  .actor-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 40px;
+    background: rgba(0,67,87,0.06);
+    padding: 4px;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  .actor-tab {
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--indigo);
+    opacity: 0.6;
+    transition: all 0.15s;
+  }
+
+  .actor-tab.active {
+    background: var(--indigo);
+    color: white;
+    opacity: 1;
+  }
+
+  .actor-panel { display: none; }
+  .actor-panel.active { display: block; }
+
+  .actor-panel h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--indigo);
+    margin-bottom: 24px;
+  }
+
+  .actor-panel p {
+    font-size: 16px;
+    color: #333;
+    max-width: 720px;
+    margin-bottom: 20px;
+  }
+
+  .actor-priority {
+    margin-top: 32px;
+    padding: 28px 32px;
+    background: white;
+    border-radius: 6px;
+    border-left: 3px solid var(--spruce);
+  }
+
+  .actor-priority h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--spruce);
+    margin-bottom: 12px;
+  }
+
+  .actor-priority p {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.5);
+    padding: 48px 80px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer strong { color: white; }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero, section, .section-inner { padding: 72px 24px; }
+    .hero { padding-top: 100px; }
+    .exec-grid, .insight-body, .concepts-grid, .design-intro-grid { grid-template-columns: 1fr; }
+    .hero-meta { flex-wrap: wrap; gap: 24px; }
+    .disproof-list { grid-template-columns: 1fr; }
+    .actor-tabs { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ideas<span>42</span> × CFF</div>
+  <ul class="nav-links">
+    <li><a href="#exec">Summary</a></li>
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#findings">What We Learned</a></li>
+    <li><a href="#map">Decision Map</a></li>
+    <li><a href="#design">Design</a></li>
+    <li><a href="#implementing">Implementation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">ideas42 &amp; College Futures Foundation — 2026</div>
+  <h1>Navigating the Gap:<br><em>How Working Adults Make<br>College Decisions</em></h1>
+  <p class="hero-sub">A behavioral research project examining why working adults in California struggle to act on what they already know about postsecondary education — and what it would take to change that.</p>
+  <div class="hero-meta">
+    <div class="hero-stat">
+      <div class="num">50+</div>
+      <div class="label">interviews with adult learners across California</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="label">core findings about decision-making barriers</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="label">design concepts grounded in the diagnosis</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXEC SUMMARY -->
+<div id="exec" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">Executive Summary</div>
+    <h2>The problem isn't motivation.<br>It's the missing navigation layer.</h2>
+    <p style="max-width: 700px; font-size: 18px; color: #333; line-height: 1.7;">Each year, hundreds of thousands of working adults in California consider returning to school. Most approach the decision thoughtfully. And yet a significant share end up in programs that don't deliver on their goals — or don't enroll at all. This report explains why — and what to do about it.</p>
+
+    <div class="exec-grid">
+      <div class="exec-card fade-up">
+        <h4>What We Found</h4>
+        <p>Adults are intentional and clear about what they value. The gap is not motivational — it is navigational. A broken decision environment makes it genuinely hard to act on what adults already know. We call this the <strong>decision infrastructure gap</strong>.</p>
+      </div>
+      <div class="exec-card fade-up">
+        <h4>What This Means for Design</h4>
+        <p>Effective interventions must meet adults where their constraints are, make implicit tradeoffs explicit, and embed trusted human support at the moment of decision. Four design concepts emerge as the most promising starting points.</p>
+      </div>
+      <div class="exec-card fade-up">
+        <h4>The Four Findings</h4>
+        <p>Adults know what they value, but can't predict which programs will deliver it. Structural constraints eliminate options before comparison begins. When formal signals fail, adults build workarounds — rational but unreliable.</p>
+      </div>
+      <div class="exec-card fade-up">
+        <h4>What Comes Next</h4>
+        <p>The most tractable near-term opportunity: adults who have decided to pursue education but lack support to choose well. CBOs, navigators, and institutions can act now by building decision support into existing touchpoints.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<div id="problem" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Problem</div>
+    <h2>The decision infrastructure gap</h2>
+    <p>The policy conversation around adult learners has increasingly converged on a single metric: return on investment. If we can steer adults toward high-ROI programs, better decisions will follow. This instinct is understandable — but incomplete. ROI flattens individual interest and fit into a single variable. It implies the right answer is the same for everyone. And it misses the deeper structural issue.</p>
+    <p>The landscape adults are navigating has grown substantially more complex. Where previous generations largely chose between a four-year college and not going, today's learners face two-year degrees, certificates, fully online programs, hybrid formats, apprenticeships, employer-sponsored pathways, and more. This proliferation is, in principle, a good thing. In practice, it means adults are making high-stakes choices in a significantly more complicated environment — often without the tools or support to navigate it.</p>
+    <p>Compounding this is the extreme variance in outcomes across programs, even within the same field. Two adults pursuing credentials in the same broad area can end up with dramatically different earnings, employment prospects, and levels of employer recognition. That variance is often invisible at the point of decision. The information needed to see it is fragmented, non-standardized, and frequently absent.</p>
+    <p>What we found reframes the problem. Adults are not passive, unmotivated, or confused about what they want. They are deliberate. The gap is not in their goals or effort. The gap is in the infrastructure that should help them translate those goals into a well-reasoned choice — and that infrastructure is largely missing.</p>
+
+    <div class="disproof-box fade-up">
+      <h4>What This Research Disproves</h4>
+      <ul class="disproof-list">
+        <li>Adults don't know what they value or want from education</li>
+        <li>Motivation is the primary gap preventing good decisions</li>
+        <li>Identity and belonging are the dominant barriers</li>
+        <li>Better tools alone will fix the problem</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FINDINGS -->
+<div id="findings" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Learned</div>
+    <h2>Four findings, one underlying problem</h2>
+    <p style="max-width: 680px; margin-bottom: 64px; font-size: 17px; color: #444;">Drawn from more than 50 interviews, these findings trace a consistent story. The barriers adults face are not primarily about motivation, identity, or a failure to understand what they value. They are about a system that makes it genuinely hard to act on what adults already know.</p>
+
+    <!-- INSIGHT 1 -->
+    <div class="insight-block fade-up">
+      <div class="insight-num">1</div>
+      <h3>Adults are intentional and clear about what they value — but what feels "worth it" shifts depending on how far ahead they can afford to look</h3>
+      <div class="insight-body">
+        <div>
+          <p>Across every segment we interviewed, people could articulate with striking clarity what value meant to them. Higher wages or career advancement. Credentials their employer would actually recognize. Skills they could apply immediately. Stability, mobility, low financial risk. Flexibility compatible with work and caregiving. Adults were not confused about what "worth it" means. They were specific about it.</p>
+          <p>This clarity matters because it reframes where the problem lies. If adults already know what they want, the gap is not motivational — it is navigational. The challenge is not getting adults to care about outcomes. It is helping them find and evaluate the programs most likely to deliver on what they already care about.</p>
+          <p>But value is not a fixed point. What adults prioritize depends significantly on how far ahead they feel they can afford to plan. For adults facing immediate financial pressure, caregiving demands, or job instability, the horizon compresses: speed, flexibility, and low cost dominate. Precarity compresses what people plan for. A learner who says "I just need something short and cheap" may not be indifferent to long-term outcomes — she may simply not have the bandwidth to plan for them right now.</p>
+          <p>What learners value and what the labor market rewards do not always align. A program can feel personally meaningful, build real skills and confidence, and still fall short of what employers recognize or what wage progression requires.</p>
+        </div>
+        <div>
+          <div class="quote-card">
+            <blockquote>"Definitely job availability and income at the end of it. Am I able to find a job once I do finish the program, and how much would it pay?… The reason why I chose Cybersecurity was because the salary outcome outweighed IT, so that's what kind of made my final decision."</blockquote>
+            <cite>— Prospective student, associate's program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I work full-time, I'm a full-time mom and wife… I don't have a lot of time to go through the material. I decided to enroll in it because it's not a long program."</blockquote>
+            <cite>— Student, certificate program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Whether a program is worth it really depends on what fulfills you. Even if the pay isn't great or there's not much growth, if the work makes you happy and you feel connected to the people you work with, that matters."</blockquote>
+            <cite>— Prospective student, associate's program</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHT 2 -->
+    <div class="insight-block fade-up">
+      <div class="insight-num">2</div>
+      <h3>Adults struggle to predict which programs will actually deliver on what they value — and the system gives them almost nothing reliable to work with</h3>
+      <div class="insight-body">
+        <div>
+          <p>Despite knowing what they value, adults consistently struggled to answer the questions that matter most: Will employers actually recognize this credential? What do graduates from this specific program earn? What additional steps will be required after completion? These are not obscure questions. They are the basic inputs to a reasonable decision. And for most adults navigating most programs, they are effectively unanswerable.</p>
+          <p>The information environment is deeply fragmented. Programs report different metrics. Wage data, where it exists, is typically averaged at the field or institution level — not the program level where it would be most useful. Employer recognition is implied through marketing rather than verified through evidence. There is no standardized format, no way to compare programs on what matters.</p>
+          <p>The consequences cluster in predictable places. In structured pathways — nursing, skilled trades, IT certifications — the credential-to-job link is relatively legible. In opaque pathways — general business certificates, CRM, data analysis — learners tended to overestimate employer recognition, underestimate additional steps, and rely on surface cues to fill the gaps.</p>
+          <p>In our second round of interviews, we introduced eight prospective learners to tools designed to support college decision-making — College Scorecard, Career Explorer, and Niche. <strong>Not one had heard of any of them.</strong> Once introduced, most reacted positively and said they would use them. The problem is not that adults are uninterested in better information. It is that the tools are effectively invisible at the moment of decision.</p>
+        </div>
+        <div>
+          <div class="quote-card">
+            <blockquote>"There's especially not universal [data about outcomes]. If you know who to ask at the school, they may or may not have it… But it's just very high-level percentages, not enough detail that if you were shelling out thousands of dollars to be like, 'Okay, this is the one for me.'"</blockquote>
+            <cite>— Recent graduate, online certificate program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I think I would have to say almost like a massive table of expectations. When you're deciding on a program… what those employment options look like in terms of 5, 10 years from now… I think something like that would help massively."</blockquote>
+            <cite>— Student, apprenticeship program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"The construction program had four different options. They had a chart as to the expected timeline, as well as the salary increases per year… and they had that lined up for you."</blockquote>
+            <cite>— Student, apprenticeship program</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHT 3 -->
+    <div class="insight-block fade-up">
+      <div class="insight-num">3</div>
+      <h3>Structural constraints don't narrow choices — they eliminate them</h3>
+      <div class="insight-body">
+        <div>
+          <p>For most working adults, the decision process doesn't begin with a survey of options. It begins with the rapid elimination of everything that won't work. Work schedules rule out anything with fixed in-person hours. Caregiving responsibilities eliminate programs requiring full-time intensity. Transportation constraints remove distant campuses. Finances make higher-cost programs unavailable, regardless of their quality.</p>
+          <p>The result: most adults are not choosing between "best" and "better." They are choosing between possible and impossible. By the time any real evaluation begins, the viable choice set may already be reduced to one or two programs. The real bottleneck is not at the comparison stage — it is upstream, at the point where options are being considered or ruled out at all.</p>
+          <p>Cognitive load compounds the problem. Adults searching for programs are often doing so at the margins of already-full lives — at night after work, navigating program websites between caregiving. Under these conditions, structured comparison becomes less likely. Heuristic shortcuts fill the gap.</p>
+          <p>When low-cost, flexible options appear in that narrowed set, a particular dynamic takes over. Programs that are free or near-free, online, and self-paced feel reversible — triggering a "why not?" mindset that short-circuits the kind of deliberation that might otherwise happen.</p>
+        </div>
+        <div>
+          <div class="quote-card">
+            <blockquote>"I'm looking at Riverside and PCC… since I'm still having a bit of car problems and stuff, that just makes it more convenient [to be remote]… For right now, just due to my situation, it'll have to be mostly remote."</blockquote>
+            <cite>— Prospective student, associate's program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"CSULA is almost like a default no-brainer… it's the closest school, it's the easiest one to get to, but CSUN has some programs that are more interesting to me."</blockquote>
+            <cite>— Prospective student, bachelor's program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I didn't look at other schools much. I knew [my program] was free and online — that's what mattered."</blockquote>
+            <cite>— Recent graduate, online certificate program</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHT 4 -->
+    <div class="insight-block fade-up">
+      <div class="insight-num">4</div>
+      <h3>When formal signals fail, adults build workarounds — and the results are mixed</h3>
+      <div class="insight-body">
+        <div>
+          <p>Adults don't give up when the formal information system fails them. They build workarounds: Reddit threads, coworkers who went through something similar, informal networks that traffic in lived experience. For many, these are the primary decision infrastructure — the most useful information they encountered in the entire process.</p>
+          <p>Informal channels do real things well. They provide practical insight that formal sources rarely offer — what the workload actually feels like, what employers in a specific city think of a credential, what the hidden steps are that a program website glosses over. But they are inconsistent in ways that matter: anecdotes substitute for data, success stories are overrepresented, and mismatches cluster predictably where formal signals are weakest.</p>
+          <p>Adults trust institutional sources and knowledgeable people far more than informal channels — they rate college counselors, college websites, and official tools as most trustworthy. But those sources are rarely available when decisions are actually being made. Adults are not choosing informal channels because they prefer them. They are defaulting to them because the more trusted alternatives are effectively out of reach.</p>
+          <p>The demand for something better is real and clearly expressed. Adults described exactly what they would want: comparable data, side-by-side program information, realistic timelines, honest employer recognition signals. The supply simply isn't there.</p>
+        </div>
+        <div>
+          <div class="quote-card">
+            <blockquote>"I would go to Reddit and Quora… those options made it really easy for me to figure out and decide."</blockquote>
+            <cite>— Prospective student, bachelor's program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"You go onto the website, of course it's going to be like, we offer [this and this]… but that's just fluff, right?"</blockquote>
+            <cite>— Prospective student, bachelor's program</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"There's no summary table comparing this program to this program… expected salary, cost… I just try to do it on my own."</blockquote>
+            <cite>— Student, apprenticeship program</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DECISION MAP -->
+<div id="map" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">Decision Map</div>
+    <h2>How adults actually navigate the decision</h2>
+    <p>The map below traces the decision process as our research describes it. Adults don't follow a single path. Some arrive still working through whether school is the right move at all. Others have resolved that question and are focused on which program will deliver what they need. What both groups share is a decision environment that works against them at every stage.</p>
+    <div class="map-container">
+      <svg width="100%" viewBox="0 0 680 710" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>Adult learner decision map</title>
+        <desc>A unified decision flowchart for working adult learners showing a single process with archetype divergence annotations and structural constraints embedded within each stage.</desc>
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+          <mask id="textgap">
+            <rect x="0" y="0" width="680" height="710" fill="white"/>
+            <rect x="217" y="11" width="186" height="22" fill="black" rx="2"/>
+            <rect x="129" y="38" width="82" height="20" fill="black" rx="2"/>
+            <rect x="241" y="38" width="82" height="20" fill="black" rx="2"/>
+            <rect x="351" y="38" width="93" height="20" fill="black" rx="2"/>
+            <rect x="471" y="38" width="98" height="20" fill="black" rx="2"/>
+            <rect x="242" y="59" width="136" height="20" fill="black" rx="2"/>
+            <rect x="227" y="73" width="166" height="20" fill="black" rx="2"/>
+          </mask>
+        </defs>
+
+        <!-- TITLE -->
+        <text x="310" y="22" text-anchor="middle" font-size="14" font-weight="500" fill="#D9E1E2" font-family="'DM Sans', sans-serif">Adult learner decision map</text>
+
+        <!-- LEGEND -->
+        <rect x="118" y="38" width="11" height="11" rx="2" fill="#004357"/>
+        <text x="133" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Upstream only</text>
+        <rect x="230" y="38" width="11" height="11" rx="2" fill="#087084"/>
+        <text x="245" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Shared stage</text>
+        <rect x="340" y="38" width="11" height="11" rx="2" fill="#EF6A00" fill-opacity="0.25" stroke="#EF6A00" stroke-width="1"/>
+        <text x="355" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Feasibility gate</text>
+        <rect x="460" y="38" width="11" height="11" rx="2" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
+        <text x="475" y="48" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Constraint layer</text>
+
+        <!-- ENTRY LABELS -->
+        <text x="310" y="68" text-anchor="middle" fill="#9BB5BE" font-size="12" font-weight="500" font-family="'DM Sans', sans-serif">Upstream learner enters here ↓</text>
+        <text x="310" y="82" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Downstream learner skips to stage 3 ↓</text>
+
+        <!-- STAGE 1 -->
+        <rect x="118" y="92" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
+        <text x="310" y="112" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Do I want to go to college?</text>
+        <rect x="118" y="132" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
+        <text x="310" y="145" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Constraints already shaping what feels possible</text>
+        <!-- Stage 1 callout -->
+        <rect x="520" y="92" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
+        <text x="532" y="110" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
+        <text x="532" y="126" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Adults are deliberate.</text>
+        <text x="532" y="142" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">College is not a default.</text>
+        <text x="532" y="156" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Narratives dominate.</text>
+        <line x1="502" y1="126" x2="520" y2="126" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <!-- NO -->
+        <line x1="118" y1="112" x2="90" y2="112" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="104" y="106" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
+        <!-- YES -->
+        <line x1="310" y1="158" x2="310" y2="182" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="326" y="174" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
+
+        <!-- STAGE 2 -->
+        <rect x="118" y="184" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
+        <text x="310" y="204" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Should I go to college?</text>
+        <rect x="118" y="224" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
+        <text x="310" y="237" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">"Can I actually make this work given my life?"</text>
+        <!-- Stage 2 callout -->
+        <rect x="520" y="184" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
+        <text x="532" y="202" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
+        <text x="532" y="218" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Identity barriers are not</text>
+        <text x="532" y="234" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">the primary issue.</text>
+        <text x="532" y="248" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Upstream learners hold open.</text>
+        <line x1="502" y1="218" x2="520" y2="218" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <!-- NO -->
+        <line x1="118" y1="204" x2="90" y2="204" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="104" y="198" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
+        <!-- YES -->
+        <line x1="310" y1="250" x2="310" y2="284" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="326" y="271" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
+        <!-- Downstream entry -->
+        <line x1="590" y1="274" x2="506" y2="300" stroke="#087084" stroke-width="1.2" stroke-dasharray="4 2" marker-end="url(#arrow)" mask="url(#textgap)"/>
+        <text x="596" y="266" fill="#087084" font-size="12" font-family="'DM Sans', sans-serif">Downstream</text>
+        <text x="596" y="280" fill="#087084" font-size="12" font-family="'DM Sans', sans-serif">enters here</text>
+
+        <!-- STAGE 3 -->
+        <rect x="118" y="286" width="384" height="40" rx="6" fill="#087084" stroke="#087084" stroke-width="0.5"/>
+        <text x="310" y="306" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">What type of program?</text>
+        <rect x="118" y="326" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
+        <text x="310" y="339" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Schedule, transport, cost, caregiving narrow the set</text>
+        <!-- Stage 3 callout -->
+        <rect x="520" y="286" width="142" height="66" rx="6" fill="#1a3a45" stroke="#087084" stroke-width="0.5"/>
+        <text x="532" y="304" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
+        <text x="532" y="320" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Possible vs. impossible —</text>
+        <text x="532" y="336" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">not good vs. better.</text>
+        <text x="532" y="352" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Familiarity fills the gap.</text>
+        <line x1="502" y1="320" x2="520" y2="320" stroke="#087084" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <!-- Feasibility gate -->
+        <line x1="310" y1="352" x2="310" y2="378" stroke="#004357" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <rect x="118" y="380" width="384" height="40" rx="6" fill="#EF6A00" fill-opacity="0.18" stroke="#EF6A00" stroke-width="1"/>
+        <text x="310" y="400" text-anchor="middle" dominant-baseline="central" fill="#7A3000" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Can I afford this type of program?</text>
+        <!-- NO -->
+        <line x1="118" y1="400" x2="90" y2="400" stroke="#EF6A00" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="104" y="394" text-anchor="middle" fill="#EF6A00" font-size="12" font-family="'DM Sans', sans-serif">NO</text>
+        <!-- YES -->
+        <line x1="310" y1="420" x2="310" y2="448" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="326" y="438" fill="#7AC10A" font-size="12" font-family="'DM Sans', sans-serif">YES</text>
+
+        <!-- STAGE 4 -->
+        <rect x="118" y="450" width="384" height="40" rx="6" fill="#7AC10A" stroke="#7AC10A" stroke-width="0.5"/>
+        <text x="310" y="470" text-anchor="middle" dominant-baseline="central" fill="#1a3a0a" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">What program should I pursue?</text>
+        <rect x="118" y="490" width="384" height="26" rx="4" fill="#EF6A00" fill-opacity="0.10" stroke="#EF6A00" stroke-width="0.5"/>
+        <text x="310" y="503" text-anchor="middle" dominant-baseline="central" fill="#CC5500" font-size="12" font-family="'DM Sans', sans-serif">Time-to-completion, schedules, cost of longer programs</text>
+        <!-- Stage 4 callout -->
+        <rect x="520" y="450" width="142" height="82" rx="6" fill="#1a3a45" stroke="#7AC10A" stroke-width="0.5"/>
+        <text x="532" y="468" fill="#7AC10A" font-size="11" font-weight="600" font-family="'DM Sans', sans-serif" letter-spacing="0.06">FINDING</text>
+        <text x="532" y="484" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">Value matters most here</text>
+        <text x="532" y="500" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">— but information is</text>
+        <text x="532" y="516" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">fragmented and trade-offs</text>
+        <text x="532" y="530" fill="#D9E1E2" font-size="12" font-family="'DM Sans', sans-serif">are never made explicit.</text>
+        <line x1="502" y1="484" x2="520" y2="484" stroke="#7AC10A" stroke-width="0.5" stroke-dasharray="3 2"/>
+
+        <!-- ENROLL -->
+        <line x1="310" y1="516" x2="310" y2="546" stroke="#7AC10A" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <rect x="118" y="548" width="384" height="40" rx="6" fill="#004357" stroke="#004357" stroke-width="0.5"/>
+        <text x="310" y="568" text-anchor="middle" dominant-baseline="central" fill="#F5F3EE" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Enroll</text>
+
+        <!-- FORGO -->
+        <line x1="72" y1="112" x2="72" y2="400" stroke="#EF6A00" stroke-width="1" stroke-dasharray="3 2"/>
+        <line x1="72" y1="400" x2="72" y2="648" stroke="#EF6A00" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrow)"/>
+        <rect x="28" y="650" width="148" height="40" rx="6" fill="#EF6A00" fill-opacity="0.15" stroke="#EF6A00" stroke-width="1"/>
+        <text x="102" y="670" text-anchor="middle" dominant-baseline="central" fill="#7A3000" font-size="14" font-weight="500" font-family="'DM Serif Display', serif">Forgo enrollment</text>
+
+        <!-- BOTTOM NOTE -->
+        <rect x="118" y="608" width="524" height="70" rx="6" fill="rgba(28,138,112,0.15)" stroke="#1C8A70" stroke-width="0.5"/>
+        <text x="380" y="628" text-anchor="middle" fill="#D9E1E2" font-size="12" font-weight="600" font-family="'DM Sans', sans-serif">The navigation gap — present at every stage</text>
+        <text x="380" y="646" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">Formal tools are rarely encountered. When official sources fail, adults rely on Reddit and peers.</text>
+        <text x="380" y="664" text-anchor="middle" fill="#9BB5BE" font-size="12" font-family="'DM Sans', sans-serif">The missing layer: support that helps people act given their real constraints.</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN CONCEPTS -->
+<div id="design" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">What This Means for Design</div>
+    <h2>Four concepts grounded in the diagnosis</h2>
+    <p style="max-width: 680px; font-size: 17px; color: #444; margin-bottom: 0;">Effective interventions in this space need to meet adults where their constraints actually are, make implicit tradeoffs explicit, and embed trusted human support at the right moment. These four concepts are not finished solutions — they are grounded, testable articulations of what a navigation layer for adult learners could look like in practice.</p>
+
+    <div class="design-intro-grid">
+      <div class="principle-card fade-up">
+        <h4>Meet constraints where they are</h4>
+        <p>Solutions that assume a wide-open choice set or easy access to advisors will miss the majority of people this work is trying to reach.</p>
+      </div>
+      <div class="principle-card fade-up">
+        <h4>Make tradeoffs explicit</h4>
+        <p>Adults have clear values but limited ability to predict which programs will honor them. Surfacing what programs will actually deliver addresses a persistent gap.</p>
+      </div>
+      <div class="principle-card fade-up">
+        <h4>Embed trusted human support</h4>
+        <p>Adults trust institutional sources and knowledgeable people. But those sources are rarely available when decisions are being made. Closing that gap is high-leverage.</p>
+      </div>
+    </div>
+
+    <div class="concepts-grid">
+      <!-- GUIDED CHOICE -->
+      <div class="concept-card fade-up">
+        <div class="concept-header">
+          <div class="tag">Downstream · Midstream</div>
+          <h3>Guided Choice Sessions</h3>
+        </div>
+        <div class="concept-body">
+          <p>A structured, human-supported session that helps an adult work through their decision at the moment it matters most — not an information dump, but a facilitated process that surfaces constraints, clarifies tradeoffs, and produces a concrete next step.</p>
+          <div class="concept-mechanism">
+            <div class="mech-label">Behavioral mechanism</div>
+            <p>Simplification and structure at the decision moment. Reduces choice overload and paralysis. Human support creates accountability that unstructured self-directed research rarely produces.</p>
+          </div>
+          <div class="concept-insights">
+            <span class="insight-tag">Insight 1</span>
+            <span class="insight-tag">Insight 2</span>
+            <span class="insight-tag">Insight 3</span>
+          </div>
+          <button class="toggle-btn" onclick="toggleDetail(this)">
+            How it works in practice <span class="arrow">↓</span>
+          </button>
+        </div>
+        <div class="concept-detail">
+          <p>A session begins with a brief intake: What are you trying to achieve? What constraints are non-negotiable right now — schedule, cost, location, time to completion? What does success look like in two years? From there, a navigator helps the adult map their goals against programs they're considering — not comparing surface features, but surfacing the questions adults don't know to ask: What do employers actually think of this credential? What do graduates from this specific program earn? Are there steps after completion not visible in the program description?</p>
+          <p>The session ends with a concrete next step — not necessarily a final decision, but a specific action: an application to complete, a financial aid office to contact, a program visit to schedule.</p>
+          <p><em>Primary actors: CBOs, navigators, college advising offices.</em></p>
+        </div>
+      </div>
+
+      <!-- CONSTRAINT-AWARE -->
+      <div class="concept-card fade-up">
+        <div class="concept-header">
+          <div class="tag">Upstream · Midstream · Downstream</div>
+          <h3>Constraint-Aware Navigation</h3>
+        </div>
+        <div class="concept-body">
+          <p>Flips the standard decision sequence by surfacing real-world constraints before presenting options — treating feasibility as a design input rather than an afterthought. Prevents wasted cognitive effort on options that were never viable.</p>
+          <div class="concept-mechanism">
+            <div class="mech-label">Behavioral mechanism</div>
+            <p>Feasibility-first filtering. Structures the decision environment so cognitive effort goes toward comparing viable options, not eliminating impossible ones. Prevents late-stage discouragement.</p>
+          </div>
+          <div class="concept-insights">
+            <span class="insight-tag">Insight 3</span>
+            <span class="insight-tag">Insight 4</span>
+          </div>
+          <button class="toggle-btn" onclick="toggleDetail(this)">
+            How it works in practice <span class="arrow">↓</span>
+          </button>
+        </div>
+        <div class="concept-detail">
+          <p>Any touchpoint in the decision process — a digital tool, an advising intake, a CBO session — begins by surfacing what an adult's real-world parameters are: How many hours per week can you realistically commit? Do you need online, in-person, or hybrid? What's your hard ceiling on cost, including indirect costs like transportation and childcare? Do you have a timeline driven by employment or family circumstances?</p>
+          <p>Only once those parameters are established does the conversation turn to options — and the options presented are those that actually fit within those parameters. This represents a meaningful departure from how most program search currently works.</p>
+          <p><em>Primary actors: CBOs, navigators, digital tool developers, institutions designing program search experiences. Amanda flagged this as a priority concept.</em></p>
+        </div>
+      </div>
+
+      <!-- COMPARE & CHOOSE -->
+      <div class="concept-card fade-up">
+        <div class="concept-header">
+          <div class="tag">Downstream</div>
+          <h3>Compare &amp; Choose</h3>
+        </div>
+        <div class="concept-body">
+          <p>Makes implicit tradeoffs explicit — presenting programs an adult is considering against a common set of decision-relevant dimensions: realistic cost, credential recognition, graduate outcomes at the program level, time to completion, and hidden requirements.</p>
+          <div class="concept-mechanism">
+            <div class="mech-label">Behavioral mechanism</div>
+            <p>Tradeoff clarification. Makes the comparison adults are implicitly trying to make visible, rather than leaving it to be assembled from fragmented sources. Reduces reliance on misleading surface cues.</p>
+          </div>
+          <div class="concept-insights">
+            <span class="insight-tag">Insight 2</span>
+            <span class="insight-tag">Insight 3</span>
+          </div>
+          <button class="toggle-btn" onclick="toggleDetail(this)">
+            How it works in practice <span class="arrow">↓</span>
+          </button>
+        </div>
+        <div class="concept-detail">
+          <p>An adult starts by identifying the two or three programs they're genuinely considering. A tool or navigator then populates what is known about each — drawing on College Scorecard data, labor market information, and program-specific outcome data — and flags explicitly where data is missing or uncertain. An adult who said time to completion is her most important constraint sees that foregrounded. An adult for whom employer recognition is the deciding factor gets that dimension highlighted.</p>
+          <p>Rather than presenting a recommendation, it surfaces the questions an adult should be asking and helps them weigh those against their own stated priorities.</p>
+          <p><em>Primary actors: CBOs, navigators, digital tool developers. Note: effectiveness depends on program-level data availability — a systemic gap that policy actors are best positioned to address.</em></p>
+        </div>
+      </div>
+
+      <!-- TRUSTED INTERMEDIARIES -->
+      <div class="concept-card fade-up">
+        <div class="concept-header">
+          <div class="tag">Upstream · Midstream · Downstream</div>
+          <h3>Trusted Intermediaries</h3>
+        </div>
+        <div class="concept-body">
+          <p>Embeds knowledgeable, trustworthy human support into the decision process through the channels adults already trust — not by creating new advisors, but by equipping people who already occupy trusted roles in adults' lives.</p>
+          <div class="concept-mechanism">
+            <div class="mech-label">Behavioral mechanism</div>
+            <p>Channel effect. The same information, delivered by a trusted source through a trusted channel, carries more weight and is more likely to be acted on than the same information through a low-trust channel.</p>
+          </div>
+          <div class="concept-insights">
+            <span class="insight-tag">Insight 1</span>
+            <span class="insight-tag">Insight 2</span>
+            <span class="insight-tag">Insight 4</span>
+          </div>
+          <button class="toggle-btn" onclick="toggleDetail(this)">
+            How it works in practice <span class="arrow">↓</span>
+          </button>
+        </div>
+        <div class="concept-detail">
+          <p>A CBO might train existing staff to conduct brief, structured decision conversations as part of services adults are already accessing. An employer offering tuition support might designate an HR contact who walks employees through program options rather than directing them to a benefits portal. A community college might recruit and train recent graduates as peer advisors.</p>
+          <p>This concept spans the full decision spectrum. Upstream, it helps adults work through whether and what to pursue — a stage where formal tools and institutional marketing have almost no traction, but a credible conversation with someone who has navigated a similar decision can be decisive. Trusted Intermediaries and Guided Choice Sessions are most powerful in combination.</p>
+          <p><em>Primary actors: CBOs, community organizations, employers, peer navigator programs. Amanda flagged this as a priority concept.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMPLEMENTING -->
+<div id="implementing" class="section-full">
+  <div class="section-inner">
+    <div class="section-eyebrow">If You're Implementing This</div>
+    <h2>Priorities by actor</h2>
+    <p style="max-width: 660px; margin-bottom: 48px; color: #444;">The findings and design concepts have different implications depending on who you are and what levers you have access to. Select your context below.</p>
+
+    <div class="actor-tabs">
+      <button class="actor-tab active" onclick="switchTab(this, 'cbo')">CBOs &amp; Navigators</button>
+      <button class="actor-tab" onclick="switchTab(this, 'institution')">Institutions</button>
+      <button class="actor-tab" onclick="switchTab(this, 'policy')">Policymakers</button>
+      <button class="actor-tab" onclick="switchTab(this, 'funder')">Funders</button>
+    </div>
+
+    <div id="tab-cbo" class="actor-panel active">
+      <h3>CBOs &amp; navigator programs</h3>
+      <p>CBOs and navigators are uniquely positioned to act on this research because they already occupy the trusted intermediary role that our findings identify as central. Adults trust people they know, in channels they already use. The challenge is not convincing adults to seek out support — it is ensuring that the support available to them is equipped to address decision-stage needs, not just enrollment paperwork.</p>
+      <p>The most immediate priority is building decision support into existing touchpoints rather than creating new ones. Staff already in contact with adults navigating postsecondary decisions can be trained to conduct brief, structured decision conversations. This doesn't require a new program — it requires equipping existing staff with the right questions, the right information sources, and a simple framework for helping adults surface their constraints and compare their options.</p>
+      <p>For organizations that serve adults earlier in the decision process, the upstream version of Trusted Intermediaries is most relevant. Peer navigators who have personally completed programs in fields relevant to your population are among the highest-leverage investments this research points toward.</p>
+      <div class="actor-priority">
+        <h4>Priority concepts</h4>
+        <p>Constraint-Aware Navigation and Guided Choice Sessions are most directly actionable — both can be embedded in advising workflows without significant technology investment. Trusted Intermediaries describes what CBOs do at their best: the implication is to systematize it and resource it as a core service.</p>
+      </div>
+    </div>
+
+    <div id="tab-institution" class="actor-panel">
+      <h3>Institutions</h3>
+      <p>Institutions have two distinct opportunities, operating at different points in the decision process. The first is upstream: how institutions communicate about their programs before prospective students have committed to applying. Program websites and marketing materials consistently felt vague, promotional, and devoid of the information adults actually need. Employer recognition, realistic earnings at the program level, typical time to completion under real-world scheduling constraints, and what additional steps are required — these are the data points adults are looking for and consistently cannot find.</p>
+      <p>The second opportunity is at the point of decision: how institutions support prospective students actively comparing options. Most institutions are better resourced for enrolled students than for prospective ones. Shifting some advising capacity toward the pre-enrollment decision stage — particularly for adult learners less likely to have a counselor guiding them — is one of the most direct ways institutions can act on this research.</p>
+      <div class="actor-priority">
+        <h4>Where to start</h4>
+        <p>It may be as simple as ensuring that an admissions conversation includes the constraint-mapping questions that Constraint-Aware Navigation describes, rather than jumping straight to application requirements. Institutions that make program-level outcome data available clearly and comparably will be more trusted and more likely to attract well-matched learners.</p>
+      </div>
+    </div>
+
+    <div id="tab-policy" class="actor-panel">
+      <h3>Policymakers</h3>
+      <p>The most important thing policymakers can do is address the underlying data infrastructure problem that runs through every finding in this report. Adults cannot make well-informed choices in a system where program-level outcome data is fragmented, non-standardized, and frequently absent. Individual interventions can mitigate this gap at the margins. They cannot solve it. The data problem is systemic and requires a systemic response.</p>
+      <p>The research points toward three policy-level priorities: standardized outcome reporting at the program level; accountability standards for how programs represent their outcomes in marketing materials; and investment in the navigator and intermediary infrastructure that helps adults access and act on whatever information is available.</p>
+      <div class="actor-priority">
+        <h4>The enabling condition</h4>
+        <p>The Compare &amp; Choose concept depends on policy action to reach its potential. A tool that helps adults compare programs can only be as good as the data it draws on. Closing the program-level data gap is the enabling condition for most of the design work this report describes.</p>
+      </div>
+    </div>
+
+    <div id="tab-funder" class="actor-panel">
+      <h3>Funders</h3>
+      <p>Funders are in a position to resource the navigation layer directly — in ways that cut across the institutional and organizational silos that currently make it difficult to build. The highest-leverage near-term opportunity is the downstream population: adults who have decided to pursue postsecondary education and are actively comparing options, but lack the support to choose well. This population is identifiable, their decision moment is bounded, and the relevant concepts are developed enough to pilot and test.</p>
+      <p>The upstream population — adults still working through whether school is the right move at all — presents a harder and more important challenge. The barriers are more diffuse, the entry points less obvious, and the most effective channel is human support through trusted relationships rather than tools or information. Investment in peer navigator programs and in building organizational capacity to provide decision support at scale is where the leverage is for this group.</p>
+      <div class="actor-priority">
+        <h4>Most durable investments</h4>
+        <p>The most durable investments are in infrastructure: the data systems that make program-level outcomes visible, the training and tools that equip navigators to provide high-quality decision support, and the partnerships between institutions, CBOs, and community organizations that ensure support reaches adults where they already are.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong>Navigating the Gap</strong><br>
+    ideas42 &amp; College Futures Foundation — 2026
+  </div>
+  <div style="text-align: right;">
+    Behavioral research on postsecondary decision-making<br>
+    for working adults in California
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Concept toggle
+  function toggleDetail(btn) {
+    const detail = btn.closest('.concept-body').nextElementSibling;
+    const isOpen = detail.classList.contains('open');
+    detail.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.querySelector('.arrow').textContent = isOpen ? '↓' : '↑';
+    btn.childNodes[0].textContent = isOpen ? 'How it works in practice ' : 'Hide details ';
+  }
+
+  // Actor tabs
+  function switchTab(btn, id) {
+    document.querySelectorAll('.actor-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.actor-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+</script>
+</body>
+</html>
